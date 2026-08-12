@@ -19,11 +19,12 @@ gal.png
 hero*.png
 fit*.png
 wm.png
-_backups/
-_original_reference/
-shots/
+# anchored to repo root so client/src/data/ is NOT ignored
+/_backups/
+/_original_reference/
+/shots/
 .playwright-mcp/
-data/
-data2/
-revert-theme.sh
+/data/
+/data2/
+/revert-theme.sh
 server/assets/*.pdf
