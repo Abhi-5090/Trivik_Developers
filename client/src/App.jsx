@@ -7,7 +7,7 @@ import Location from './components/Location.jsx'
 import VideoSection from './components/VideoSection.jsx'
 import Gallery from './components/Gallery.jsx'
 import Experience from './components/Experience.jsx'
-import MasterPlan from './components/MasterPlan.jsx'
+// import MasterPlan from './components/MasterPlan.jsx' — temporarily hidden per client request
 import Clubhouse from './components/Clubhouse.jsx'
 import Amenities from './components/Amenities.jsx'
 import Landscape from './components/Landscape.jsx'
@@ -36,7 +36,7 @@ export default function App() {
         <VideoSection ref={videoRef} />
         <Gallery />
         <Experience />
-        <MasterPlan />
+        {/* <MasterPlan />  — temporarily hidden per client request */}
         <Clubhouse />
         <Amenities />
         <Landscape />
