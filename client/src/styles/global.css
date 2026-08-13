@@ -878,7 +878,10 @@ h3 {
   flex-wrap: wrap;
   gap: 8px;
   padding: 6px;
-  margin-bottom: 22px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 22px;
+  justify-content: center;
   border-radius: 16px;
   background: #EFEDE4;
   border: 1px solid rgba(60, 58, 53, 0.08);
@@ -1236,7 +1239,7 @@ h3 {
 }
 @media (max-width: 620px) {
   .loc2-highlights { grid-template-columns: repeat(2, 1fr); }
-  .loc2-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .loc2-tabs { width: 100%; flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
   .loc2-tabs::-webkit-scrollbar { display: none; }
   .loc2-tab { flex-shrink: 0; }
   .loc2-marker { width: 18px; height: 18px; font-size: 9px; border-width: 1.5px; }
