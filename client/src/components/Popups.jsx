@@ -71,7 +71,7 @@ export default function Popups({ popupOpen, setPopupOpen, thankyouOpen, setThank
                 Terms &amp; Conditions
               </a>
             </label>
-            <button type="submit">Send</button>
+            <button type="submit">Schedule your Site Visit</button>
           </form>
         </div>
       </div>

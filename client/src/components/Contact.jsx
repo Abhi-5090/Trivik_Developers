@@ -47,7 +47,7 @@ export default function Contact() {
           <input type="text" name="contact" placeholder="Contact Number" required />
           <input type="text" name="query" placeholder="Query" />
           <button type="submit" disabled={status === 'sending'}>
-            {status === 'sending' ? 'Sending…' : 'Send'}
+            {status === 'sending' ? 'Sending…' : 'Schedule your Site Visit'}
           </button>
         </form>
 

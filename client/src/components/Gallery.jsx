@@ -1,51 +1,50 @@
 import { useEffect } from 'react'
-import Slider from 'react-slick'
 import { Fancybox } from '@fancyapps/ui'
-import { galleryImages } from '../data/contentData.js'
+
+// Bento layout: one big feature (main) + a 2x2 cluster + a bottom row.
+// Every cell is ~3:2, matching the renders so cropping stays minimal, and the
+// whole set fits one screen. `area` maps each image to a grid-area.
+const GALLERY = [
+  { src: 'images/gallery-main.webp', alt: 'The Grand Entrance', area: 'main' },
+  { src: 'images/gallery-entrance.webp', alt: 'Arrival Gateway', area: 'a' },
+  { src: 'images/gallery-avenue.webp', alt: 'Tree-lined Avenue', area: 'b' },
+  { src: 'images/gallery-open.webp', alt: 'Landscaped Open Spaces', area: 'c' },
+  { src: 'images/gallery-basketball.webp', alt: 'Sports Court', area: 'd' },
+  { src: 'images/gallery-park.webp', alt: "Children's Park", area: 'e' },
+  { src: 'images/gallery-yoga.webp', alt: 'Yoga Deck', area: 'f' },
+  { src: 'images/gallery-tabletennis.webp', alt: 'Pickleball Court', area: 'g' },
+  { src: 'images/gallery-amphitheatre.webp', alt: 'Amphitheatre', area: 'h' },
+]
 
 export default function Gallery() {
   useEffect(() => {
-    Fancybox.bind("[data-fancybox='gallery']", {})
+    Fancybox.bind("[data-fancybox='gallery']", { Thumbs: { type: 'classic' } })
     return () => Fancybox.destroy()
   }, [])
-
-  // Carousel is only used on tablet/mobile (arrows needed there). On laptop+ the
-  // bento grid shows every image at once, so no carousel/arrows.
-  const mobileSettings = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: false,
-    infinite: true,
-  }
 
   return (
     <section className="gallery-section" id="gallery">
       <div className="container">
-        <h3>Gallery</h3>
-        <p>A world where your story takes shape.</p>
-
-        {/* Laptop+ : bento grid, no carousel */}
-        <div className="gallery-slide desktop-visible">
-          {galleryImages.map((g) => (
-            <div className={g.div} key={g.div}>
-              <a href={g.src} data-fancybox="gallery" className={g.imgCls}>
-                <img src={g.src} alt={g.alt} style={g.style} />
-              </a>
-            </div>
-          ))}
+        <div className="jg-head">
+          <span className="jg-eyebrow">Gallery</span>
+          <h3>A world where your story takes shape.</h3>
         </div>
 
-        {/* Tablet / mobile : carousel with arrows */}
-        <Slider {...mobileSettings} className="gallery-mobile-slider mobile-visible">
-          {galleryImages.map((g) => (
-            <div key={`m-${g.div}`}>
-              <a href={g.src} data-fancybox="gallery">
-                <img src={g.src} alt={g.alt} style={g.style} />
-              </a>
-            </div>
+        <div className="gbento">
+          {GALLERY.map((g) => (
+            <a
+              key={g.src}
+              href={g.src}
+              data-fancybox="gallery"
+              data-caption={g.alt}
+              className="gcell"
+              style={{ gridArea: g.area }}
+            >
+              <img src={g.src} alt={g.alt} loading="lazy" />
+              <span className="jg-cap">{g.alt}</span>
+            </a>
           ))}
-        </Slider>
+        </div>
       </div>
     </section>
   )

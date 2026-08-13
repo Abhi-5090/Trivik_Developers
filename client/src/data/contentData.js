@@ -16,9 +16,9 @@ export const outdoorItems = [
 
 // ---- Specifications section ----
 export const specsTabs = [
-  { key: 'services-tab', label: 'Electrical, Plumbing & Services', img: 'images/services.webp' },
-  { key: 'features-tab', label: 'Green Features', img: 'images/features.webp' },
-  { key: 'infrastructure-tab', label: 'Infrastructure', img: 'images/infra.webp' },
+  { key: 'services-tab', label: 'Our Services', img: 'images/gallery-entrance.webp' },
+  { key: 'features-tab', label: 'Green Features', img: 'images/avenue-plantation.webp' },
+  { key: 'infrastructure-tab', label: 'Infrastructure', img: 'images/clubhouse-entry.webp' },
 ]
 
 export const specsContent = {

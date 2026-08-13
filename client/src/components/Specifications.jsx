@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { specsTabs, specsContent } from '../data/contentData.js'
 
 const RoadIcon = () => (
@@ -21,29 +21,12 @@ const ICONS = { 'infrastructure-tab': <RoadIcon />, 'services-tab': <BoltIcon />
 
 export default function Specifications() {
   const [tab, setTab] = useState('services-tab')
-  const timer = useRef(null)
   const active = specsTabs.find((t) => t.key === tab)
   const blocks = specsContent[tab]
 
-  // silently auto-rotate through the tabs, forever (no timer UI)
-  const schedule = () => {
-    clearInterval(timer.current)
-    timer.current = setInterval(() => {
-      setTab((prev) => {
-        const i = specsTabs.findIndex((t) => t.key === prev)
-        return specsTabs[(i + 1) % specsTabs.length].key
-      })
-    }, 4500)
-  }
-  useEffect(() => {
-    schedule()
-    return () => clearInterval(timer.current)
-  }, [])
-
-  const selectTab = (k) => {
-    setTab(k)
-    schedule()
-  }
+  // manual tab switching only (auto-rotate disabled per request)
+  const idx = specsTabs.findIndex((t) => t.key === tab)
+  const go = (dir) => setTab(specsTabs[(idx + dir + specsTabs.length) % specsTabs.length].key)
 
   return (
     <section className="specifications-section spec2" id="specifications">
@@ -63,7 +46,7 @@ export default function Specifications() {
               role="tab"
               aria-selected={tab === t.key}
               className={`spec2-tab${tab === t.key ? ' active' : ''}`}
-              onClick={() => selectTab(t.key)}
+              onClick={() => setTab(t.key)}
             >
               <span className="spec2-tab-ic">{ICONS[t.key]}</span>
               {t.label}
@@ -96,6 +79,18 @@ export default function Specifications() {
                 {ICONS[tab]}
                 {active.label}
               </span>
+
+              {/* carousel arrows to switch tabs */}
+              <button className="spec2-arrow spec2-arrow--prev" onClick={() => go(-1)} aria-label="Previous specification">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </button>
+              <button className="spec2-arrow spec2-arrow--next" onClick={() => go(1)} aria-label="Next specification">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
             </figure>
           </div>
         </div>

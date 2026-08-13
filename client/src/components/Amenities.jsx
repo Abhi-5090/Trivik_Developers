@@ -8,7 +8,7 @@ const TABS = [
     count: 25,
     items: clubhouseItems,
     cols: 3,
-    imgs: ['amenities6', 'amenities9', 'sports2', 'sports1', 'sports7', 'amenities3'],
+    imgs: ['club-gym', 'club-cafeteria', 'club-sports', 'club-partyhall', 'club-meeting', 'club-library'],
   },
   {
     key: 'outdoor',
@@ -16,7 +16,7 @@ const TABS = [
     count: 15,
     items: outdoorItems,
     cols: 2,
-    imgs: ['amenities1', 'kids-play-area', 'amenities5', 'amphitheatre-new', 'yoga-deck', 'yard'],
+    imgs: ['lux-yoga', 'lux-varenda', 'lux-basketball', 'lux-openarea', 'lux-tabletennis', 'lux-amphi'],
   },
 ]
 

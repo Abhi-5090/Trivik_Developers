@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const roads = [
-  { title: '15 Metre Roads', tag: 'Arterial avenue', img: 'images/15metre-road.webp' },
+  { title: '18 Metre Roads', tag: 'Arterial avenue', img: 'images/15metre-road.webp' },
   { title: '12 Metre Roads', tag: 'Connector street', img: 'images/12metre-road.webp' },
   { title: '9 Metre Roads', tag: 'Quiet internal lane', img: 'images/9metre-road.webp' },
 ]

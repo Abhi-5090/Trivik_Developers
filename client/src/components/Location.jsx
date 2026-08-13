@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { landmarkCategories, sitePin } from '../data/locationLandmarks.js'
 
-// Each tab is a single colour, alternating green / brown across tabs.
-// MK = darker markers that sit on the light map; ACC = lighter tint for the dark rail.
-const MK = ['#2F4A34', '#6E5A3C']
-const ACC = ['#AECB87', '#D8B36B']
+// On mobile/tablet, show only this many plots before the "Load more" button.
+const MOBILE_PREVIEW = 4
 
 const PlaneIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
@@ -60,12 +58,11 @@ export default function Location() {
   const [active, setActive] = useState('education')
   const [hover, setHover] = useState(null)
   const [inView, setInView] = useState(false)
+  const [expanded, setExpanded] = useState(false)
   const rootRef = useRef(null)
 
   const idx = landmarkCategories.findIndex((c) => c.key === active)
   const cat = landmarkCategories[idx]
-  const mk = MK[idx % 2]
-  const acc = ACC[idx % 2]
 
   useEffect(() => {
     const el = rootRef.current
@@ -86,12 +83,13 @@ export default function Location() {
   const switchCat = (key) => {
     setActive(key)
     setHover(null)
+    setExpanded(false)
   }
 
   return (
     <section className="location-section loc2" id="location" ref={rootRef}>
       <div className="container">
-        <div className="loc2-stage" style={{ '--mk': mk, '--acc': acc }}>
+        <div className="loc2-stage">
           {/* ── header : copy + animated headline stats ── */}
           <div className="loc2-head">
             <div className="loc2-head-copy">
@@ -124,7 +122,6 @@ export default function Location() {
                 role="tab"
                 aria-selected={active === c.key}
                 className={`loc2-tab${active === c.key ? ' active' : ''}`}
-                style={{ '--tc': ACC[i % 2] }}
                 onClick={() => switchCat(c.key)}
               >
                 <span className="loc2-tab-dot" />
@@ -136,20 +133,30 @@ export default function Location() {
 
           {/* ── body : synced list + map ── */}
           <div className="loc2-body">
-            <div className="loc2-list" key={active}>
-              {cat.places.map((p, i) => (
-                <div
-                  className={`loc2-item${hover === i ? ' on' : ''}`}
-                  key={p.n}
-                  style={{ '--i': i }}
-                  onMouseEnter={() => setHover(i)}
-                  onMouseLeave={() => setHover(null)}
-                >
-                  <span className="loc2-item-num">{i + 1}</span>
-                  <span className="loc2-item-name">{p.n}</span>
-                  <span className="loc2-item-time">{p.m} min</span>
-                </div>
-              ))}
+            <div className="loc2-listcol">
+              <div className={`loc2-list${expanded ? ' expanded' : ''}`} key={active}>
+                {cat.places.map((p, i) => (
+                  <div
+                    className={`loc2-item${hover === i ? ' on' : ''}`}
+                    key={p.n}
+                    style={{ '--i': i }}
+                    onMouseEnter={() => setHover(i)}
+                    onMouseLeave={() => setHover(null)}
+                  >
+                    <span className="loc2-item-num">{i + 1}</span>
+                    <span className="loc2-item-name">{p.n}</span>
+                    <span className="loc2-item-time">{p.m} min</span>
+                  </div>
+                ))}
+              </div>
+              {cat.places.length > MOBILE_PREVIEW && !expanded && (
+                <button className="loc2-more" onClick={() => setExpanded(true)}>
+                  Load more <span>({cat.places.length - MOBILE_PREVIEW} more)</span>
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+              )}
             </div>
 
             <div className="loc2-map">
