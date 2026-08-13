@@ -217,7 +217,7 @@ h3 {
 ========================= */
 
 #site-header.scrolled {
-  background: rgba(30, 42, 24, 0.92);
+  background: rgba(35, 35, 35, 0.92);
 
   backdrop-filter: blur(12px);
 
@@ -432,7 +432,7 @@ h3 {
   border: none;
   writing-mode: vertical-rl;
   transform: translateY(-50%) rotate(180deg);
-  background: #1E2A18;
+  background: #232323;
   color: #fff;
   font-size: 14px;
   padding: 15px 8px;
@@ -442,7 +442,7 @@ h3 {
 }
 
 .enquire-btn:hover {
-  background: #26331D;
+  background: #333333;
   color: #fff;
 }
 
@@ -584,7 +584,7 @@ h3 {
 }
 
 .popup-form button {
-  background: #1E2A18;
+  background: #232323;
   color: #fff;
   padding: 14px 0;
   border: none;
@@ -689,8 +689,8 @@ h3 {
   padding: 2.4em 2.4em 1.6em;
   color: #EAE6D6;
   background:
-    radial-gradient(120% 90% at 100% 0%, rgba(84, 110, 60, 0.28) 0%, transparent 55%),
-    linear-gradient(158deg, #182310 0%, #1E2C15 55%, #223118 100%);
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 55%),
+    linear-gradient(158deg, #232323 0%, #282828 55%, #2E2E2E 100%);
   box-shadow: 0 40px 90px -50px rgba(16, 26, 10, 0.9);
   overflow: hidden;
 }
@@ -820,12 +820,12 @@ h3 {
 }
 .loc2-tab:hover { color: #EAE6D6; }
 .loc2-tab.active {
-  color: #16210F;
+  color: #232323;
   background: var(--tc);
 }
 .loc2-tab.active .loc2-tab-dot {
   opacity: 1;
-  background: #16210F;
+  background: #232323;
 }
 .loc2-tab-count {
   font-size: 11px;
@@ -897,7 +897,7 @@ h3 {
   justify-content: center;
   font-size: 13px;
   font-weight: 700;
-  color: #16210F;
+  color: #232323;
   background: var(--acc);
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.5);
   transition: transform .2s ease, box-shadow .2s ease;
@@ -985,7 +985,7 @@ h3 {
   bottom: 150%;
   left: 50%;
   transform: translateX(-50%);
-  background: #16210F;
+  background: #232323;
   color: #fff;
   padding: 7px 12px;
   border-radius: 10px;
@@ -1010,7 +1010,7 @@ h3 {
   left: 50%;
   transform: translateX(-50%);
   border: 5px solid transparent;
-  border-top-color: #16210F;
+  border-top-color: #232323;
 }
 .loc2-marker:hover .loc2-marker-tip,
 .loc2-marker.on .loc2-marker-tip { opacity: 1; visibility: visible; }
@@ -1102,7 +1102,7 @@ h3 {
   justify-content: center;
   font-size: 12px;
   font-weight: 700;
-  color: #16210F;
+  color: #232323;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   z-index: 5;
@@ -1957,10 +1957,10 @@ h3 {
   cursor: pointer;
   transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
-.mplan-tab:hover { color: #1E2A18; }
+.mplan-tab:hover { color: #232323; }
 .mplan-tab.active {
-  background: #1E2A18;
-  border-color: #1E2A18;
+  background: #232323;
+  border-color: #232323;
   color: #fff;
 }
 .mplan-timer {
@@ -1996,7 +1996,7 @@ h3 {
 }
 .mplan-sw--empty { background: transparent; box-shadow: none; }
 .mplan-rl { flex: 1; font-size: 14px; color: #2E3D24; }
-.mplan-rv { font-weight: 600; font-size: 14px; color: #1E2A18; }
+.mplan-rv { font-weight: 600; font-size: 14px; color: #232323; }
 .mplan-total { border-bottom: none; border-top: 2px solid #D9D4C4; margin-top: 2px; }
 .mplan-total .mplan-rl, .mplan-total .mplan-rv { font-weight: 700; }
 .mplan-note { font-size: 12px; color: #8a8178; margin-top: 14px; }
@@ -2010,7 +2010,7 @@ h3 {
   overflow: hidden;
   background: #F1EEE4;
   border: 1px solid #E1DBCB;
-  box-shadow: 0 26px 54px -30px rgba(30, 42, 24, 0.4);
+  box-shadow: 0 26px 54px -30px rgba(35, 35, 35, 0.4);
 }
 .mplan-layer {
   position: absolute;
@@ -2068,7 +2068,7 @@ h3 {
   padding-top: 20px; border-top: 1px solid rgba(34, 48, 26, 0.14);
 }
 .club2-stat b {
-  display: block; font-size: 24px; font-weight: 700; color: #33502F; line-height: 1;
+  display: block; font-size: 24px; font-weight: 700; color: #232323; line-height: 1;
 }
 .club2-stat b span { font-size: 12px; font-weight: 600; color: #6E7C4F; }
 .club2-stat em { font-style: normal; font-size: 12.5px; color: #6A7358; margin-top: 5px; display: block; }
@@ -2123,7 +2123,7 @@ h3 {
   font-size: 13px; font-weight: 600; color: #5C6A47; letter-spacing: .2px;
   transition: all .3s ease;
 }
-.club2-tab.active { background: #33502F; color: #fff; box-shadow: 0 6px 16px -8px rgba(51, 80, 47, 0.8); }
+.club2-tab.active { background: #232323; color: #fff; box-shadow: 0 6px 16px -8px rgba(35, 35, 35, 0.8); }
 
 .club2-floor-body {
   display: flex; gap: 26px; align-items: center;
@@ -2221,8 +2221,8 @@ h3 {
   cursor: pointer;
   transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
-.amen-tab:hover { color: #1E2A18; }
-.amen-tab.active { background: #1E2A18; border-color: #1E2A18; color: #fff; }
+.amen-tab:hover { color: #232323; }
+.amen-tab.active { background: #232323; border-color: #232323; color: #fff; }
 .amen-tab span {
   font-size: 11px;
   font-weight: 700;
@@ -2319,7 +2319,7 @@ h3 {
   min-height: 0;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(30, 42, 24, 0.13);
+  box-shadow: 0 8px 22px rgba(35, 35, 35, 0.13);
   animation: amen-pop 0.5s ease backwards;
 }
 .amenities-section .amen-fig img {
@@ -2749,7 +2749,7 @@ h3 {
   overflow: hidden;
   background: #FBFAF6;
   border: 1px solid #E7E2D3;
-  box-shadow: 0 22px 46px rgba(30, 42, 24, 0.15);
+  box-shadow: 0 22px 46px rgba(35, 35, 35, 0.15);
   display: flex;
   flex-direction: column;
 }
@@ -2786,7 +2786,7 @@ h3 {
 }
 .verdant-cap {
   flex: 0 0 auto;
-  background: #1E2A18;
+  background: #232323;
   padding: 13px 20px 15px;
   display: flex;
   flex-direction: column;
@@ -2860,10 +2860,10 @@ h3 {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 5px 14px rgba(30, 42, 24, 0.26);
+  box-shadow: 0 5px 14px rgba(35, 35, 35, 0.26);
 }
 .verdant-chat-meta { display: flex; flex-direction: column; line-height: 1.35; }
-.verdant-chat-meta b { font-family: 'Montserrat', sans-serif; font-size: 15px; color: #1E2A18; }
+.verdant-chat-meta b { font-family: 'Montserrat', sans-serif; font-size: 15px; color: #232323; }
 .verdant-chat-meta em { font-style: normal; font-size: 12px; color: #7A7E6E; }
 
 .verdant-thread { display: flex; flex-direction: column; gap: 14px; }
@@ -2878,7 +2878,7 @@ h3 {
   font-family: 'Lora', serif;
   font-size: 15px;
   line-height: 1.62;
-  box-shadow: 0 6px 18px rgba(30, 42, 24, 0.09);
+  box-shadow: 0 6px 18px rgba(35, 35, 35, 0.09);
   opacity: 0;
   transform: translateY(16px) scale(0.98);
 }
@@ -3015,8 +3015,8 @@ h3 {
   transition: background .25s ease, color .25s ease, border-color .25s ease, transform .2s ease;
 }
 .spec2-tab-ic { display: inline-flex; color: #6E8B5A; transition: color .25s ease; }
-.spec2-tab:hover { color: #1E2A18; transform: translateY(-1px); }
-.spec2-tab.active { background: #1E2A18; border-color: #1E2A18; color: #fff; }
+.spec2-tab:hover { color: #232323; transform: translateY(-1px); }
+.spec2-tab.active { background: #232323; border-color: #232323; color: #fff; }
 .spec2-tab.active .spec2-tab-ic { color: #9DB57E; }
 
 /* body */
@@ -3035,7 +3035,7 @@ h3 {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 600;
-  color: #1E2A18;
+  color: #232323;
   margin: 0 0 12px;
   padding-left: 14px;
   position: relative;
@@ -3080,7 +3080,7 @@ h3 {
   aspect-ratio: 4 / 3;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 22px 46px rgba(30, 42, 24, 0.20);
+  box-shadow: 0 22px 46px rgba(35, 35, 35, 0.20);
   transition: transform .5s ease, box-shadow .5s ease;
   cursor: pointer;
 }
@@ -3095,7 +3095,7 @@ h3 {
   transition: opacity .7s ease, transform .8s ease;
 }
 .spec2-frame img.on { opacity: 1; transform: scale(1); }
-.spec2-frame:hover { transform: translateY(-5px); box-shadow: 0 30px 60px rgba(30, 42, 24, 0.28); }
+.spec2-frame:hover { transform: translateY(-5px); box-shadow: 0 30px 60px rgba(35, 35, 35, 0.28); }
 .spec2-frame:hover img.on { transform: scale(1.07); }
 
 .spec2-sheen {
@@ -3296,7 +3296,7 @@ h3 {
 }
 
 .contact-form button {
-  background-color: #1E2A18;
+  background-color: #232323;
   color: #fff;
   padding: 14px;
   border: none;
@@ -3324,7 +3324,7 @@ h3 {
 .footer2 {
   position: relative;
   overflow: hidden;
-  background: #16200E;
+  background: #232323;
   color: #D4D7C9;
   padding: 1.8em 0 0;
 }
@@ -3367,7 +3367,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background: #33502F;
+  background: #232323;
   color: #fff;
   border: none;
   border-radius: 30px;
@@ -3379,7 +3379,7 @@ h3 {
   cursor: pointer;
   transition: background 0.25s ease, transform 0.2s ease;
 }
-.footer2-brochure:hover { background: #3E6138; transform: translateY(-2px); }
+.footer2-brochure:hover { background: #333333; transform: translateY(-2px); }
 .footer2-social { display: flex; gap: 10px; }
 .footer2-social a {
   width: 33px;
@@ -3470,7 +3470,7 @@ h3 {
 /* Footer */
 .footer {
   padding-block: 4em;
-  background: #1E2A18;
+  background: #232323;
   color: #ffffff;
 }
 
@@ -3925,7 +3925,7 @@ height: 30px;
   position: absolute;
   transform: rotate(-180deg);
   text-align: center;
-  color: #1E2A18;
+  color: #232323;
   left: 0;
   top: 0;
   height: 48px;
@@ -3945,7 +3945,7 @@ height: 30px;
 }
 
 .progress-wrap svg.progress-circle path {
-  stroke: #1E2A18;
+  stroke: #232323;
   stroke-width: 4;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -4080,8 +4080,8 @@ p { font-family: 'Lora', serif; }
 }
 .hero-btn > span { font-size: 15px; transition: transform .2s ease; }
 .hero-btn:hover { transform: translateY(-2px); }
-.hero-btn--primary { background: #33502F; border: 1px solid #33502F; color: #fff; }
-.hero-btn--primary:hover { background: #3E6138; }
+.hero-btn--primary { background: #232323; border: 1px solid #232323; color: #fff; }
+.hero-btn--primary:hover { background: #333333; }
 .hero-btn--primary:hover > span { transform: translateX(4px); }
 .hero-btn--ghost {
   background: rgba(255, 255, 255, 0.06);
@@ -4267,7 +4267,7 @@ p { font-family: 'Lora', serif; }
      ancestor triggers the Chromium "blank until scroll" bug. The <video>
      rounds itself instead (see .video-el border-radius). */
   background: #0D140C;
-  box-shadow: 0 24px 60px rgba(30, 42, 24, 0.22);
+  box-shadow: 0 24px 60px rgba(35, 35, 35, 0.22);
 }
 .video-el {
   width: 100%;
@@ -4295,7 +4295,7 @@ p { font-family: 'Lora', serif; }
   align-items: center;
   justify-content: center;
   color: #fff;
-  background: rgba(30, 42, 24, 0.55);
+  background: rgba(35, 35, 35, 0.55);
   border: 2px solid rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   cursor: pointer;
@@ -4318,7 +4318,7 @@ p { font-family: 'Lora', serif; }
   100% { transform: scale(1.25); opacity: 0; }
 }
 .video-play:hover {
-  background: rgba(30, 42, 24, 0.82);
+  background: rgba(35, 35, 35, 0.82);
   transform: scale(1.07);
 }
 
