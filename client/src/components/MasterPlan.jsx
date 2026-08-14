@@ -53,9 +53,10 @@ export default function MasterPlan() {
     <section className="mplan-section" id="master_plan">
       <div className="container">
         <div className="mplan-head">
-          <h3>Master Plan</h3>
+          <span className="mplan-eyebrow">The Master Plan</span>
+          <h3>Thoughtfully zoned, acre by acre.</h3>
           <p>
-            Thoughtfully zoned across ~23.5 acres — 307 sites, 6 landscaped parks and generous open spaces.
+            307 sites, 6 landscaped parks and generous open spaces laid out across ~23.5 acres.
           </p>
         </div>
 

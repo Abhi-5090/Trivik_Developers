@@ -5,8 +5,8 @@ residential development in Devanahalli, North Bengaluru. Built on the MERN stack
 (originally scaffolded from an Assetz "City of Palms" replica, now fully
 rebranded and redesigned for Trivik).
 
-- **Live site:** https://akhilesh-varanasi-18.github.io/Assetz/
-- **Repo:** https://github.com/Akhilesh-Varanasi-18/Assetz (branch: `main`)
+- **Live site:** https://abhi-5090.github.io/Trivik_Developers/
+- **Repo:** https://github.com/Abhi-5090/Trivik_Developers (branch: `main`)
 - **Hosting:** GitHub Pages, auto-deployed by GitHub Actions on every push to `main`.
 
 > ⚠️ The **live site is frontend-only** (static). The Express backend (enquiry
@@ -35,7 +35,7 @@ Node **20+** recommended (CI uses Node 20).
 ## 2. Repository structure
 
 ```
-Assetz/
+Trivik_Developers/
 ├─ client/                     # React + Vite front end (this is 95% of the work)
 │  ├─ index.html
 │  ├─ vite.config.js           # base-path logic for GitHub Pages (see §6)
@@ -67,8 +67,8 @@ to build). If a teammate needs the raw design renders, transfer them separately.
 
 ```bash
 # 1. clone
-git clone https://github.com/Akhilesh-Varanasi-18/Assetz.git
-cd Assetz
+git clone https://github.com/Abhi-5090/Trivik_Developers.git
+cd Trivik_Developers
 
 # 2. install front-end deps
 cd client
@@ -120,9 +120,9 @@ cd client
 npm run build                       # outputs to client/dist  (base = "/")
 npm run preview                     # serves the build locally
 
-# To reproduce the GitHub Pages build exactly (base = "/Assetz/"):
+# To reproduce the GitHub Pages build exactly (base = "/Trivik_Developers/"):
 VITE_PAGES=true npm run build
-VITE_PAGES=true npm run preview     # → http://localhost:4173/Assetz/
+VITE_PAGES=true npm run preview     # → http://localhost:4173/Trivik_Developers/
 ```
 
 ---
@@ -135,19 +135,19 @@ in `client/` and publishes `client/dist` to GitHub Pages. Takes ~1–2 minutes.
 
 ```bash
 # watch the deploy from the terminal
-gh run list  --repo Akhilesh-Varanasi-18/Assetz --limit 3
-gh run watch --repo Akhilesh-Varanasi-18/Assetz --exit-status
+gh run list  --repo Abhi-5090/Trivik_Developers --limit 3
+gh run watch --repo Abhi-5090/Trivik_Developers --exit-status
 ```
 Or view it in the repo's **Actions** tab. After it succeeds, hard-refresh the
 live URL (`Ctrl + F5`) to bypass cache.
 
-### ⚠️ Critical: asset paths & the `/Assetz/` sub-path
-The live site is served under a sub-path (`/Assetz/`), so **asset paths matter**:
+### ⚠️ Critical: asset paths & the `/Trivik_Developers/` sub-path
+The live site is served under a sub-path (`/Trivik_Developers/`), so **asset paths matter**:
 - In **JS/JSX**, reference images **without a leading slash**: `src="images/foo.webp"`
   (document-relative). A leading slash (`/images/…`) will **404 on the live site**.
 - In **CSS**, keep the leading slash: `url(/images/foo.webp)` — Vite rebases these
   with the base path automatically.
-- `vite.config.js` sets `base: '/Assetz/'` only when `VITE_PAGES=true` (CI sets it);
+- `vite.config.js` sets `base: '/Trivik_Developers/'` only when `VITE_PAGES=true` (CI sets it);
   local `npm run dev` stays at `/`. Don't remove this logic.
 
 ---
@@ -249,7 +249,7 @@ git pull
 Repo owner: **GitHub → repo → Settings → Collaborators → Add people** and invite
 their GitHub username. Or via CLI:
 ```bash
-gh api -X PUT /repos/Akhilesh-Varanasi-18/Assetz/collaborators/THEIR_USERNAME -f permission=push
+gh api -X PUT /repos/Abhi-5090/Trivik_Developers/collaborators/THEIR_USERNAME -f permission=push
 ```
 They accept the emailed invite, then `git clone` and follow §3.
 
@@ -265,7 +265,7 @@ They accept the emailed invite, then `git clone` and follow §3.
 | Build for production | `cd client && npm run build` |
 | Preview the Pages build | `cd client && VITE_PAGES=true npm run preview` |
 | Ship a change live | push/merge to `main` → auto-deploys in ~1–2 min |
-| Watch the deploy | `gh run watch --repo Akhilesh-Varanasi-18/Assetz --exit-status` |
+| Watch the deploy | `gh run watch --repo Abhi-5090/Trivik_Developers --exit-status` |
 | New feature branch | `git checkout -b feature/x` |
 | Open a PR | `gh pr create --base main --fill` |
 | Merge a PR | `gh pr merge <n> --squash --delete-branch` |

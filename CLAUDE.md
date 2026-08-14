@@ -6,7 +6,7 @@ deploy, and git-workflow details. This file is the quick, must-not-break summary
 
 ## What it is
 - Single-page React (Vite) marketing site. All UI is in `client/`.
-- Live at https://akhilesh-varanasi-18.github.io/Assetz/ via GitHub Pages,
+- Live at https://abhi-5090.github.io/Trivik_Developers/ via GitHub Pages,
   auto-deployed by `.github/workflows/deploy.yml` on every push to `main`.
 - The Express backend (`server/`, enquiry form) is **not** hosted; it's local-only.
 
@@ -18,7 +18,7 @@ deploy, and git-workflow details. This file is the quick, must-not-break summary
 
 ## Rules that will break the live site if ignored
 1. **Asset paths.** In JS/JSX reference images **without a leading slash**:
-   `src="images/x.webp"` (the site is served under `/Assetz/`, so `/images/…` 404s
+   `src="images/x.webp"` (the site is served under `/Trivik_Developers/`, so `/images/…` 404s
    in production). In CSS keep the leading slash (`url(/images/x.webp)`) — Vite
    rebases it. Don't touch the `base` logic in `client/vite.config.js`.
 2. **New images** → webp, ≤1800px long edge, put in `client/public/images/`.

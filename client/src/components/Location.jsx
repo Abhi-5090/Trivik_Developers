@@ -4,6 +4,10 @@ import { landmarkCategories, sitePin } from '../data/locationLandmarks.js'
 // On mobile/tablet, show only this many plots before the "Load more" button.
 const MOBILE_PREVIEW = 4
 
+// On desktop, a category longer than this is split into two columns so the
+// whole list is readable at a glance instead of hiding behind a scrollbar.
+const TWO_COL_MIN = 10
+
 const PlaneIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
     <path d="M10.5 13.5 3 12l1-2 6.5 1 4-5.5c.6-.8 1.5-1.2 2.3-1 .8.2 1 1.1.5 1.9L14 12l.8 6.5-1.6.8-2.4-5.3L6.5 15 6 18l-1.5.5L4 15Z" />
@@ -63,6 +67,11 @@ export default function Location() {
 
   const idx = landmarkCategories.findIndex((c) => c.key === active)
   const cat = landmarkCategories[idx]
+
+  // Two-column layout fills column-first (1…n down the left, then the right),
+  // which needs an explicit row count for grid-auto-flow: column.
+  const twoCol = cat.places.length > TWO_COL_MIN
+  const colRows = Math.ceil(cat.places.length / 2)
 
   useEffect(() => {
     const el = rootRef.current
@@ -134,7 +143,11 @@ export default function Location() {
           {/* ── body : synced list + map ── */}
           <div className="loc2-body">
             <div className="loc2-listcol">
-              <div className={`loc2-list${expanded ? ' expanded' : ''}`} key={active}>
+              <div
+                className={`loc2-list${twoCol ? ' loc2-list--two' : ''}${expanded ? ' expanded' : ''}`}
+                style={twoCol ? { '--rows': colRows } : undefined}
+                key={active}
+              >
                 {cat.places.map((p, i) => (
                   <div
                     className={`loc2-item${hover === i ? ' on' : ''}`}

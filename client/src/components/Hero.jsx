@@ -13,22 +13,19 @@ export default function Hero({ onEnquire }) {
         <img src="images/trivik-hero-gate.webp" alt="Trivik Courtyard entrance" className="hero-bg" />
       </picture>
 
-      {/* brand lockup: big logo + minimal stats */}
-      <div className="hero-lockup">
-        <img src="images/trivik-logo-white.png" alt="Trivik Developers" className="hero-logo-big" />
-        <div className="hero-facts">
-          {FACTS.map((f) => (
-            <div className="hero-fact" key={f.l}>
-              <b>{f.v}</b>
-              <span>{f.l}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <button className="enquire-btn" onClick={onEnquire}>
         Enquire now
       </button>
+
+      {/* stats sit as a footer bar along the base of the hero render */}
+      <div className="hero-stats">
+        {FACTS.map((f) => (
+          <div className="hero-stat" key={f.l}>
+            <b>{f.v}</b>
+            <span>{f.l}</span>
+          </div>
+        ))}
+      </div>
     </section>
   )
 }

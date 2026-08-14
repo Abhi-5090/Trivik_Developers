@@ -140,7 +140,7 @@ export default function PlanGraphic({ mode }) {
       {/* entrance gateway (bottom-centre) */}
       <rect x={606} y={624} width={68} height={44} fill={road} />
       <rect x={598} y={648} width={84} height={12} rx="6" fill="#B0452B" />
-      <text x={640} y={690} textAnchor="middle" fontFamily="Montserrat, sans-serif" fontSize="17" fontWeight="700" letterSpacing="2" fill="#8A8272">
+      <text x={640} y={690} textAnchor="middle" fontFamily="'Saira', sans-serif" fontSize="17" fontWeight="700" letterSpacing="2" fill="#8A8272">
         ENTRANCE
       </text>
 
@@ -148,7 +148,7 @@ export default function PlanGraphic({ mode }) {
       <g transform={`translate(${W - 74}, 66)`}>
         <circle r="20" fill="rgba(255,255,255,.85)" stroke="#D8D2C1" strokeWidth="1.5" />
         <path d="M0 -12 L5 2 L0 -2 L-5 2 Z" fill="#B0452B" />
-        <text y="15" textAnchor="middle" fontFamily="Montserrat, sans-serif" fontSize="10" fontWeight="700" fill="#5A5F50">N</text>
+        <text y="15" textAnchor="middle" fontFamily="'Saira', sans-serif" fontSize="10" fontWeight="700" fill="#5A5F50">N</text>
       </g>
     </svg>
   )
