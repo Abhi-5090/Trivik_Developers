@@ -7,7 +7,7 @@ const TABS = [
     label: 'Clubhouse',
     count: 12,
     items: clubhouseItems,
-    cols: 3,
+    cols: 2,
     imgs: ['club-gym', 'club-cafeteria', 'club-sports', 'club-partyhall', 'club-meeting', 'club-library'],
   },
   {
