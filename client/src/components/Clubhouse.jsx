@@ -1,7 +1,9 @@
+// Figures per "Trivik Courtyard — The Master Narrative" (02 · Overview,
+// 06 · The Clubhouse): 14,000 sq.ft, 25+ curated amenities, 12 facilities.
 const STATS = [
-  { v: '~20,000', u: 'sq. ft.', l: 'Clubhouse' },
-  { v: '2', u: 'levels', l: 'Ground + First' },
-  { v: '40+', u: 'curated', l: 'Amenities' },
+  { v: '14,000', u: 'sq. ft.', l: 'Clubhouse' },
+  { v: '25+', u: 'curated', l: 'Amenities' },
+  { v: '12', u: 'facilities', l: 'Within the club' },
 ]
 
 export default function Clubhouse() {
@@ -13,12 +15,14 @@ export default function Clubhouse() {
             <span className="club2-eyebrow">The Clubhouse</span>
             <h3>The soul of the community.</h3>
             <p>
-              An exquisite ~20,000 sq. ft. structure that rises as a grounded, earth‑toned presence —
-              anchoring Trivik Courtyard with quiet confidence.
+              Fourteen thousand square feet, built for one purpose: to turn a layout into a
+              neighbourhood, and neighbours into the family next door.
             </p>
             <p>
-              Social lounges, wellness nooks and curated leisure zones woven into green alcoves invite
-              residents to pause, connect and unwind. Here, every gathering feels like a homecoming.
+              Mornings on the yoga deck while the pool catches the first light; afternoons over coffee at
+              the café; evenings in the party hall — and on clear nights, the stargazing deck. It is
+              quietly thoughtful, too: wheelchair-accessible throughout and lift-served, with a steam
+              room and sauna for tired days and an infirmary for anxious ones.
             </p>
             <div className="club2-stats">
               {STATS.map((s) => (

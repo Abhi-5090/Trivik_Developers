@@ -1,5 +1,5 @@
 const FACTS = [
-  { v: '23', l: 'Acres' },
+  { v: '23.5', l: 'Acres' },
   { v: '306', l: 'Plots' },
   { v: 'STRR', l: 'Road' },
 ]

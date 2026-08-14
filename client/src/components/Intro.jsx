@@ -5,15 +5,14 @@ export default function Intro() {
         <div className="intro-content">
           <h3>A life of your own design.</h3>
           <p>
-            In the heart of North Bengaluru’s Devanahalli growth corridor, between Doddaballapura and
-            Devanahalli, a ~23.5-acre premium residential plotted development is quietly making its presence
-            known. Expansive plots, generous open spaces and thoughtful amenities set amidst verdant serenity,
-            here every step feels like an invitation to put down roots. A place where every piece of earth
-            transforms into a blank canvas, ready for homes as unique as its inhabitants.
+            At Beerasandra, directly on the Satellite Town Ring Road in North Bengaluru, a 23.5-acre
+            master-planned community is quietly making its presence known. 306 Vaastu-compliant villa
+            plots gathered around gardens, a clubhouse and open sky — every piece of earth a blank
+            canvas, ready for homes as unique as the families who build them.
           </p>
           <p>
             This is Trivik Courtyard. <br />
-            Where your legacy unfolds in quiet grace.
+            At the centre of everything that matters.
           </p>
         </div>
       </div>

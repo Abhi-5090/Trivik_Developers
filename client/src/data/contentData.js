@@ -1,20 +1,25 @@
-// ---- Amenities section (from client's amenities workbook) ----
-// Indoor / clubhouse amenities
+// ---- Amenities section ----
+// Source of truth: "Trivik Courtyard — The Master Narrative" (07 · Amenities
+// and 06 · The Clubhouse). The narrative states 25+ curated indoor & outdoor
+// amenities; these two lists total exactly that.
+
+// Indoor / clubhouse facilities (narrative 06 · Facilities)
 export const clubhouseItems = [
-  'Entry Lobby', 'Lounge', 'Bistro Café', 'Meeting Room', 'Cowork Area', 'Library', 'Infirmary',
-  'Game Room', 'Gym', 'VR Room', 'Home Theatre', 'Steam & Sauna', 'Party Hall', 'Pantry',
-  'Meditation Deck', 'Yoga Deck', 'Star Gazing', 'Swimming Pool', 'Kids Pool', 'Table Tennis',
-  'Billiards', 'Changing Rooms / Toilets', 'Lift', 'Lawns', 'Water Fountain',
+  'Entrance Lobby', 'Party Hall with Kitchen & Pantry', 'Swimming Pool', 'Kids’ Pool',
+  'Gym', 'Steam & Sauna', 'Games Room', 'Café', 'Yoga Deck', 'Stargazing Deck',
+  'Lift', 'Infirmary',
 ]
 
-// Outdoor amenities
+// Outdoor amenities (narrative 07 · Active / Family / Wellness / Nature)
 export const outdoorItems = [
-  'Kids Play Area', 'Jogging Track', 'Party Lawns', 'Outdoor Gym', 'Pickleball Court', 'Pet Park',
-  'Basketball Court', 'Cricket Net Box', 'Senior Citizen Zone', 'Amphitheatre', 'Reflexology Path',
-  'Landscape Gardens', 'Gazebo', 'Miyawaki Forest', 'Yoga Lawns',
+  'Cricket Box', 'Basketball Half Court', 'Pickleball Court', 'Kids’ Play Area',
+  'Amphitheatre', 'Meditation Zone', 'Reflexology Park', 'Senior Citizen Park',
+  'Miyawaki Forest', 'Sensory Gardens', 'Landscaped Gardens', 'Pet Park',
+  'Theme Parks & Green Pockets',
 ]
 
 // ---- Specifications section ----
+// Source of truth: narrative 08 · Specifications and 07A · Green & Sustainability.
 export const specsTabs = [
   { key: 'services-tab', label: 'Our Services', img: 'images/spec-services.webp' },
   { key: 'features-tab', label: 'Green Features', img: 'images/spec-green-features.webp' },
@@ -24,70 +29,68 @@ export const specsTabs = [
 export const specsContent = {
   'infrastructure-tab': [
     {
-      heading: 'Roads & Pathways',
+      heading: 'Roads & Access',
       points: [
-        '18m wide entrance road.',
-        'Internal roads 12m & 9m wide asphalted driveways.',
-        'Landscaped avenue on either side of the road with pedestrian pathways.',
-        'Each plot has a defined access finished in concrete / pavers from the approach road.',
+        '60 ft wide asphalt arterial road.',
+        '30 ft & 40 ft wide asphalt internal roads.',
+        'Landscaped and paver pathways on either side of roads.',
+        'Road signage and plot numbering.',
+        'Defined concrete / paver access to every plot from the approach road.',
       ],
     },
   ],
   'services-tab': [
     {
-      heading: 'Electrical',
+      heading: 'Water',
       points: [
-        'LED streetlights.',
-        'Underground conduits for fibre optic provision (data & voice).',
-        'Underground power lines from transformer yards to feeder pillars, with provision up to the plot.',
+        'Underground water supply connection (UGWS).',
+        'Overhead water tank (OHT) and water treatment plant.',
+        'Storm water gutter drains along the driveway.',
+        'Rainwater harvesting recharge pits.',
       ],
     },
     {
-      heading: 'Plumbing',
+      heading: 'Sewage',
       points: [
-        'Underground dual water supply system.',
-        'Plumbing lines terminated within plots for water supply & sewage.',
-        'Underground sanitary lines connected to central STP.',
-        'Centralized OHT & UG sump of suitable capacity with adequate head / pressure.',
-        'Drip irrigation network for majority of common landscape areas.',
+        'Underground sewage drain pipeline.',
+        'Sewage treatment plant.',
       ],
     },
     {
-      heading: 'Services',
+      heading: 'Electrical & Communication',
       points: [
-        'Sewage Treatment Plant.',
-        'Water Treatment Plant with underground sump tank.',
-        'Organic Waste Convertor.',
-        'DG provided for common services.',
+        'Underground electrical power connection.',
+        'Energy-efficient street lighting.',
+        'DG backup for common areas.',
+        'Underground communication cabling.',
       ],
     },
     {
       heading: 'Safety & Security',
       points: [
-        'Security cabin with boom barriers.',
-        'Peripheral boundary with entry / exit signages.',
-        "CCTV cameras at main entrance & exit, service yards and children's play area.",
+        'Peripheral boundary with entry & exit gates.',
+        'Grand entrance with security.',
+        'CCTV surveillance across the community.',
       ],
     },
   ],
   'features-tab': [
     {
-      heading: 'Water Conservation',
+      heading: 'A Forest, Planted on Purpose',
       points: [
-        'STP-treated water used for common landscape irrigation & flushing (all plots).',
-        'Recharge pits for rainwater harvesting.',
+        'A Miyawaki forest — dense, native and alive with birdsong within a few short years.',
+        'Sensory gardens that engage sight, scent and touch.',
+        'Theme parks and green pockets threading green through the layout.',
+        'Tree-lined pathways that turn every errand into a walk.',
       ],
     },
     {
-      heading: 'Energy Conservation',
-      points: ['Time-controlled LED street lights, partially powered by solar power.'],
-    },
-    {
-      heading: 'Landscape Features',
+      heading: 'Care Beneath the Surface',
       points: [
-        'Urban garden areas.',
-        'Avenue plantation for internal & public roads with low-maintenance plants.',
-        'All landscape lights designed to enhance hardscape & softscape.',
+        'Rainwater harvesting recharge pits.',
+        'Water treatment and reuse.',
+        'Energy-efficient street lighting.',
+        'Waste managed within the community.',
       ],
     },
   ],

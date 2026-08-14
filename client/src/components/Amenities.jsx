@@ -5,7 +5,7 @@ const TABS = [
   {
     key: 'clubhouse',
     label: 'Clubhouse',
-    count: 25,
+    count: 12,
     items: clubhouseItems,
     cols: 3,
     imgs: ['club-gym', 'club-cafeteria', 'club-sports', 'club-partyhall', 'club-meeting', 'club-library'],
@@ -13,7 +13,7 @@ const TABS = [
   {
     key: 'outdoor',
     label: 'Outdoor',
-    count: 15,
+    count: 13,
     items: outdoorItems,
     cols: 2,
     imgs: ['lux-yoga', 'lux-varenda', 'lux-basketball', 'lux-openarea', 'lux-tabletennis', 'lux-amphi'],
@@ -30,8 +30,8 @@ export default function Amenities() {
         <div className="amen-head">
           <h3>Layers of luxury.</h3>
           <p>
-            At Trivik Courtyard, every amenity is a quiet celebration of the everyday — 40+ curated spaces
-            for wellness, leisure and joy.
+            Amenities here aren’t a list to be counted — they’re the moments of a day, designed with care.
+            25+ curated indoor and outdoor spaces for play, wellness and belonging.
           </p>
         </div>
 

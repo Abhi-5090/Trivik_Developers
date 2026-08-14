@@ -53,7 +53,7 @@ export default function Contact() {
 
         {status === 'sent' && (
           <p style={{ marginTop: '1rem', color: '#2a2a2a' }}>
-            Thank you for contacting us! We will get in touch with you shortly.
+            Thank you. Our team will reach out to you shortly.
           </p>
         )}
         {status === 'preview' && (

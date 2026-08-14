@@ -31,11 +31,14 @@ const CapIcon = () => (
   </svg>
 )
 
+// Drive times per "Trivik Courtyard — The Master Narrative" (03 · Location).
+// The narrative groups schools and universities at 5–15 min, so the headline
+// figure is the near end of that band, not the 2 min previously shown.
 const HIGHLIGHTS = [
   { icon: <PlaneIcon />, value: 30, unit: 'min', label: 'Kempegowda Intl. Airport' },
-  { icon: <RoadIcon />, value: 10, unit: 'min', label: 'NH-44 Expressway' },
-  { icon: <WorkIcon />, value: 5, unit: 'min', label: 'ITIR Employment Hub' },
-  { icon: <CapIcon />, value: 2, unit: 'min', label: 'Leading Schools' },
+  { icon: <WorkIcon />, value: 5, unit: 'min', label: 'ITIR · Foxconn operational' },
+  { icon: <CapIcon />, value: 5, unit: 'min', label: 'Leading Schools & Universities' },
+  { icon: <RoadIcon />, value: 10, unit: 'min', label: 'Doddaballapur Industrial Area' },
 ]
 
 // count-up number that animates once its section scrolls into view
@@ -102,11 +105,11 @@ export default function Location() {
           {/* ── header : copy + animated headline stats ── */}
           <div className="loc2-head">
             <div className="loc2-head-copy">
-              <span className="loc2-eyebrow">The Location · Devanahalli, North Bengaluru</span>
+              <span className="loc2-eyebrow">The Location · Beerasandra, North Bengaluru</span>
               <h3>Proximity to the world.</h3>
               <p>
-                Everything that shapes a good life — schools, workplaces, healthcare and the airport —
-                kept within a calm, unhurried reach of home.
+                Directly on the Satellite Town Ring Road — schools and universities, workplaces,
+                healthcare and the airport, all arranged around the community, minutes in every direction.
               </p>
             </div>
             <div className="loc2-highlights">

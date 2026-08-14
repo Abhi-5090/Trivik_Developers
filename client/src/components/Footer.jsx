@@ -37,7 +37,8 @@ export default function Footer({ onBrochure }) {
               <img src="images/trivik-logo-white.png" alt="Trivik Developers" className="footer2-logo" />
             </a>
             <p className="footer2-tag">
-              A premium plotted residential community in North Bengaluru’s Devanahalli growth corridor.
+              306 Vaastu-compliant villa plots across 23.5 acres at Beerasandra, directly on the
+              Satellite Town Ring Road, North Bengaluru.
             </p>
             <div className="footer2-actions">
               <button className="footer2-brochure" onClick={onBrochure}>
@@ -95,8 +96,8 @@ export default function Footer({ onBrochure }) {
             </a>
             <p className="footer2-addr">
               <b>Site</b>
-              Trivik Courtyard, Beerasandra &amp; Chinnakempanahalli Village, Devanahalli Taluk, Bengaluru,
-              Karnataka
+              Trivik Courtyard, Beerasandra, on the Satellite Town Ring Road (STRR), Devanahalli Taluk,
+              Bengaluru, Karnataka
             </p>
             <p className="footer2-addr">
               <b>Corporate</b>

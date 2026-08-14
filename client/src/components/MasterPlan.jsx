@@ -7,13 +7,16 @@ const TABS = [
 ]
 
 // colours mirror PlanGraphic so the legend swatches match the map
+// Plot sizes in sq.ft, the unit the master narrative uses (metric equivalents:
+// 9.14×12.19 m, 9.14×15.24 m, 9.14×18.28 m, 12.19×18.28 m). The range matches
+// the narrative's stated 1,200 – 2,400 sq.ft.
 const SITE_ROWS = [
-  { color: '#9B8CC4', label: 'Odd Sites', value: '100' },
-  { color: '#5B9BD5', label: '9.14 × 15.24 m', value: '68' },
-  { color: '#3FA9A6', label: '9.14 × 12.19 m', value: '74' },
-  { color: '#7FB069', label: '9.14 × 18.28 m', value: '37' },
-  { color: '#D2695E', label: '12.19 × 18.28 m', value: '26' },
-  { color: '#E8924A', label: 'Commercial Sites', value: '02' },
+  { color: '#3FA9A6', label: '30 × 40 ft · 1,200 sq.ft', value: '74' },
+  { color: '#5B9BD5', label: '30 × 50 ft · 1,500 sq.ft', value: '68' },
+  { color: '#7FB069', label: '30 × 60 ft · 1,800 sq.ft', value: '37' },
+  { color: '#D2695E', label: '40 × 60 ft · 2,400 sq.ft', value: '26' },
+  { color: '#9B8CC4', label: 'Odd Plots (as per site edge)', value: '100' },
+  { color: '#E8924A', label: 'Retail & Commercial', value: '02' },
 ]
 
 const LAND_ROWS = [
@@ -56,7 +59,8 @@ export default function MasterPlan() {
           <span className="mplan-eyebrow">The Master Plan</span>
           <h3>Thoughtfully zoned, acre by acre.</h3>
           <p>
-            307 sites, 6 landscaped parks and generous open spaces laid out across ~23.5 acres.
+            306 Vaastu-compliant villa plots from 1,200 – 2,400 sq.ft, gathered around gardens,
+            a clubhouse and open sky across 23.5 master-planned acres.
           </p>
         </div>
 
@@ -85,17 +89,11 @@ export default function MasterPlan() {
                   <span className="mplan-rv">{r.value}</span>
                 </div>
               ))}
-              {active === 'site' && (
-                <div className="mplan-row mplan-total">
-                  <span className="mplan-sw mplan-sw--empty" />
-                  <span className="mplan-rl">Total Sites</span>
-                  <span className="mplan-rv">307</span>
-                </div>
-              )}
             </div>
 
             <p className="mplan-note">
-              Total area ~23.5 acres (95,019 sq.m) · 6 parks (9,511 sq.m) · 2 commercial sites.
+              23.5 acres · 60 ft arterial avenue with 30 ft &amp; 40 ft internal streets ·
+              integrated retail &amp; commercial zone.
             </p>
           </div>
 

@@ -51,7 +51,7 @@ export default function Popups({ popupOpen, setPopupOpen, thankyouOpen, setThank
             &times;
           </span>
           <h1 id="popup-title" className="popup-title">
-            Contact
+            Reserve your place in the courtyard.
           </h1>
 
           <form id="contactForm" onSubmit={onSubmit}>
@@ -60,16 +60,11 @@ export default function Popups({ popupOpen, setPopupOpen, thankyouOpen, setThank
             <input type="tel" name="phone" placeholder="Contact Number" required />
             <textarea name="message" placeholder="Query" required></textarea>
             <label className="checkbox-label">
+              {/* The link previously pointed at assetzproperty.com — a different
+                  developer, left over from the original template. Plain text
+                  until Trivik's own terms page exists. */}
               <input type="checkbox" id="customChecknew" name="termsconsent" value="yes" defaultChecked />
-              I Agree to the{' '}
-              <a
-                href="https://www.assetzproperty.com/termsconditions"
-                target="_blank"
-                rel="noreferrer"
-                style={{ textDecoration: 'underline', color: '#000' }}
-              >
-                Terms &amp; Conditions
-              </a>
+              I agree to the Terms &amp; Conditions
             </label>
             <button type="submit">Schedule your Site Visit</button>
           </form>
@@ -85,7 +80,7 @@ export default function Popups({ popupOpen, setPopupOpen, thankyouOpen, setThank
           <div id="popup-message" style={{ textAlign: 'center' }}>
             <h2 style={{ color: '#2a2a2a', fontWeight: 'bold', marginTop: '1rem' }}>THANK YOU!</h2>
             <p style={{ marginTop: '0.5rem' }}>
-              {IS_PREVIEW ? PREVIEW_MESSAGE : 'Thank you for contacting us! We will get in touch with you shortly.'}
+              {IS_PREVIEW ? PREVIEW_MESSAGE : 'Thank you. Our team will reach out to you shortly.'}
             </p>
           </div>
         </div>

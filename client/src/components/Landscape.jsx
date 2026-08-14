@@ -1,10 +1,14 @@
 // Three static road-section cards under a centred heading. No carousel.
 // Note: the 18m card's file is still named 15metre-road.webp — a stale name
 // from an earlier revision; the drawing itself is the 18m section.
+// Widths per "Trivik Courtyard — The Master Narrative" (05 · Master Plan and
+// 08 · Specifications): a 60 ft arterial avenue with 30 ft & 40 ft internal
+// streets. Same roads as before, stated in the narrative's units (60 ft = 18 m,
+// 40 ft = 12 m, 30 ft = 9 m).
 const roads = [
-  { title: '18 Metre Roads', tag: 'Arterial avenue', img: 'images/15metre-road.webp' },
-  { title: '12 Metre Roads', tag: 'Connector street', img: 'images/12metre-road.webp' },
-  { title: '9 Metre Roads', tag: 'Quiet internal lane', img: 'images/9metre-road.webp' },
+  { title: '60 ft Arterial Avenue', tag: 'The grand arrival', img: 'images/15metre-road.webp' },
+  { title: '40 ft Internal Street', tag: 'Tree-lined and paver-edged', img: 'images/12metre-road.webp' },
+  { title: '30 ft Internal Street', tag: 'Quiet, unhurried lane', img: 'images/9metre-road.webp' },
 ]
 
 export default function Landscape() {
