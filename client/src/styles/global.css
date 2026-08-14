@@ -50,8 +50,8 @@ a {
 }
 
 p {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 28px;
   margin-bottom: 20px;
 }
 
@@ -104,7 +104,7 @@ h3 {
   }
 
   p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   h3 {
@@ -855,7 +855,7 @@ h3 {
 }
 .loc2-head-copy p {
   font-family: var(--font);
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.65;
   color: #5f5c53;
   max-width: 460px;
@@ -1054,7 +1054,7 @@ h3 {
 }
 .loc2-item-name {
   flex: 1;
-  font-size: 14.5px;
+  font-size: 16.5px;
   font-weight: 500;
   color: #37352f;
   line-height: 1.25;
@@ -1275,7 +1275,7 @@ h3 {
 
 .loc2-disclaimer {
   margin-top: 18px;
-  font-size: 12px;
+  font-size: 14px;
   color: #9a968b;
 }
 
@@ -1446,7 +1446,7 @@ h3 {
   font-size: clamp(28px, 3.4vw, 44px);
   font-weight: 600; color: #2b2a26; line-height: 1.1; margin-bottom: 8px;
 }
-.dfl-head p { font-size: 16px; color: #6b675d; margin: 0; }
+.dfl-head p { font-size: 18px; color: #6b675d; margin: 0; }
 
 /* Image card takes the lion's share of the row; the data card is narrower and
    centres against it, so its height is driven by its own content rather than
@@ -1540,7 +1540,7 @@ h3 {
   margin-bottom: 12px;
 }
 .dfl-note {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.6;
   color: #6b675d;
   max-width: 34ch;
@@ -2049,7 +2049,7 @@ h3 {
   bottom: 20px;
   z-index: 3;
   color: #fff;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: .3px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
@@ -2130,7 +2130,7 @@ h3 {
     border-radius: 14px;
   }
   .runway-arrow { display: none; }            /* swipe or tap a thumb instead */
-  .runway-caption { left: 14px; bottom: 32px; font-size: 13px; }
+  .runway-caption { left: 14px; bottom: 32px; font-size: 15px; }
   .runway-stage::after { height: 42%; }
   .runway-dots { bottom: 12px; gap: 7px; }
   .runway-dot { width: 7px; height: 7px; }
@@ -2139,7 +2139,7 @@ h3 {
 /* very small phones */
 @media (max-width: 380px) {
   .runway-thumb { width: 84px; }
-  .runway-caption { font-size: 12px; }
+  .runway-caption { font-size: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2172,7 +2172,7 @@ h3 {
 }
 .mplan-head p {
   font-family: var(--font);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: #6b675d;
   margin: 0;
@@ -2260,7 +2260,7 @@ h3 {
 .mplan-rv { font-weight: 600; font-size: 14px; color: #232323; }
 .mplan-total { border-bottom: none; border-top: 2px solid #D9D4C4; margin-top: 2px; }
 .mplan-total .mplan-rl, .mplan-total .mplan-rv { font-weight: 700; }
-.mplan-note { font-size: 12px; color: #8a8178; margin-top: 14px; }
+.mplan-note { font-size: 14px; color: #8a8178; margin-top: 14px; }
 
 /* graphic (two crossfading layers) */
 .mplan-graphic {
@@ -2323,7 +2323,7 @@ h3 {
 }
 .club2-intro p {
   font-family: var(--font);
-  font-size: 15px; line-height: 1.7; color: #6b675d; margin-bottom: 12px;
+  font-size: 17px; line-height: 1.7; color: #6b675d; margin-bottom: 12px;
 }
 .club2-stats {
   display: flex; gap: 26px; margin-top: 22px;
@@ -2385,7 +2385,7 @@ h3 {
 }
 .amen-head p {
   font-family: var(--font);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: #3A3E31;
 }
@@ -2561,7 +2561,7 @@ h3 {
   .amen-list.cols-3, .amen-list.cols-2 { columns: 1; }
   .amen-mosaic-stack { height: 300px; }
   .amen-mosaic { gap: 7px; }
-  .amen-head p { font-size: 15px; }
+  .amen-head p { font-size: 17px; }
 }
 
 .amenities-section .section-header {
@@ -2918,7 +2918,7 @@ h3 {
   font-weight: 600; color: #2b2a26; line-height: 1.2; margin-bottom: 5px;
 }
 .verdant-card figcaption span {
-  font-size: 13px; color: #8a867b; letter-spacing: .2px;
+  font-size: 15px; color: #8a867b; letter-spacing: .2px;
 }
 
 @media (max-width: 900px) {
@@ -2950,9 +2950,9 @@ h3 {
 .spec2 .container { display: block; }
 .spec2-head { max-width: 780px; margin-bottom: 1.6em; }
 .spec2-head h3 { margin-bottom: 0.3em; }
-.spec2-head p {
+.spec2 .spec2-head p {
   font-family: var(--font);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: #3A3E31;
   margin: 0;
@@ -3154,7 +3154,7 @@ h3 {
 }
 
 .specifications-section p {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: .5em;
 }
@@ -3343,7 +3343,7 @@ h3 {
 .footer2-logo { width: 128px; display: block; margin-bottom: 9px; }
 .footer2-tag {
   font-family: var(--font);
-  font-size: 13.5px;
+  font-size: 15.5px;
   line-height: 1.5;
   color: #A7AC98;
   max-width: 330px;
@@ -4189,7 +4189,7 @@ p { font-family: var(--font); }
 .video-header h3 { margin-bottom: 0.4em; }
 .video-header p {
   font-family: var(--font);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: #3A3E31;
 }
@@ -4262,7 +4262,7 @@ p { font-family: var(--font); }
 
 @media (max-width: 768px) {
   .video-section { padding: 3.2em 0 3.6em; }
-  .video-header p { font-size: 15px; }
+  .video-header p { font-size: 17px; }
   .video-frame { border-radius: 14px; }
   .video-play { width: 64px; height: 64px; }
 }
