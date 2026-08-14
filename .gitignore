@@ -28,3 +28,7 @@ wm.png
 /data2/
 /revert-theme.sh
 server/assets/*.pdf
+
+# staging folder for supplied renders — copied into images/ by hand, and
+# everything under public/ ships in the build, so keep it out of the repo
+/client/public/NEW/
