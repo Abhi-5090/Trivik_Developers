@@ -20,10 +20,11 @@ export const outdoorItems = [
 
 // ---- Specifications section ----
 // Source of truth: narrative 08 · Specifications and 07A · Green & Sustainability.
+// Tab order: Infrastructure -> Green Features -> Our Services
 export const specsTabs = [
-  { key: 'services-tab', label: 'Our Services', img: 'images/spec-services.webp' },
-  { key: 'features-tab', label: 'Green Features', img: 'images/spec-green-features.webp' },
   { key: 'infrastructure-tab', label: 'Infrastructure', img: 'images/clubhouse-entry.webp' },
+  { key: 'features-tab', label: 'Green Features', img: 'images/spec-green-features.webp' },
+  { key: 'services-tab', label: 'Our Services', img: 'images/spec-services.webp' },
 ]
 
 export const specsContent = {

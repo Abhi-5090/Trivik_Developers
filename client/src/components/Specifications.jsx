@@ -20,7 +20,7 @@ const LeafIcon = () => (
 const ICONS = { 'infrastructure-tab': <RoadIcon />, 'services-tab': <BoltIcon />, 'features-tab': <LeafIcon /> }
 
 export default function Specifications() {
-  const [tab, setTab] = useState('services-tab')
+  const [tab, setTab] = useState(specsTabs[0].key)
   const active = specsTabs.find((t) => t.key === tab)
   const blocks = specsContent[tab]
 
