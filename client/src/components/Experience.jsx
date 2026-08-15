@@ -75,7 +75,7 @@ export default function Experience() {
     return () => clearTimeout(t)
   }, [active, inView])
 
-  // hold → leave (skipped while paused, so hovering keeps the figures up)
+  // hold → leave. Runs regardless of the cursor: hovering does not pause it.
   useEffect(() => {
     if (phase !== 'hold' || paused) return
     const t = setTimeout(() => setPhase('leave'), HOLD)
@@ -124,8 +124,6 @@ export default function Experience() {
 
         <div
           className="dfl-stage"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
           onKeyDown={onKeyDown}
           role="group"
           aria-roledescription="carousel"

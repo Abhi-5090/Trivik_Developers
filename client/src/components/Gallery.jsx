@@ -79,7 +79,9 @@ export default function Gallery() {
     return () => cancelAnimationFrame(id)
   }, [noAnim])
 
-  // Keyed off `active`, not `pos`, so an invisible rebase doesn't restart the clock.
+  // Keyed off `active`, not `pos`, so an invisible rebase doesn't restart the
+  // clock. Hovering no longer pauses it — only keyboard focus does, so someone
+  // tabbing through the thumbs isn't fighting the rotation.
   useEffect(() => {
     if (paused) return
     const t = setTimeout(() => setPos((p) => p + 1), AUTOPLAY_MS)
@@ -124,8 +126,6 @@ export default function Gallery() {
 
         <div
           className="runway"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
           onFocusCapture={() => setPaused(true)}
           onBlurCapture={() => setPaused(false)}
           onKeyDown={onKeyDown}
