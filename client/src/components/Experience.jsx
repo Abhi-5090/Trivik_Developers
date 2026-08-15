@@ -14,7 +14,7 @@ const ITEMS = [
   {
     img: 'images/acres.webp',
     alt: 'Acres',
-    value: '23.5',
+    value: '25',
     label: 'Acres',
     note: 'Master-planned, low density, gated.',
   },
@@ -52,6 +52,7 @@ export default function Experience() {
   const [paused, setPaused] = useState(false)
   const [inView, setInView] = useState(false)
   const rootRef = useRef(null)
+  const queued = useRef(null)
 
   // Hold the first frame off-stage until the section is actually on screen,
   // so the entrance isn't spent while the viewer is elsewhere on the page.
@@ -81,16 +82,33 @@ export default function Experience() {
     return () => clearTimeout(t)
   }, [phase, paused])
 
-  // leave → next
+  // leave → next. A manual pick parks its index here so arrows and dots run
+  // through the same exit/enter choreography as the automatic advance.
   useEffect(() => {
     if (phase !== 'leave') return
-    const t = setTimeout(() => setActive((a) => (a + 1) % ITEMS.length), EXIT)
+    const t = setTimeout(() => {
+      // read and clear the queued index *outside* the updater — a state updater
+      // must be pure, and React invokes it more than once in StrictMode, which
+      // dropped the queued value and sent "previous" forward instead of back
+      const q = queued.current
+      queued.current = null
+      setActive((a) => (q !== null ? q : (a + 1) % ITEMS.length))
+    }, EXIT)
     return () => clearTimeout(t)
   }, [phase])
 
-  const select = (i) => {
-    if (i === active) return
-    setActive(i)
+  const goTo = (i) => {
+    const n = (i + ITEMS.length) % ITEMS.length
+    if (n === active || phase === 'leave' || !inView) return
+    queued.current = n
+    setPhase('leave')
+  }
+  const prev = () => goTo(active - 1)
+  const next = () => goTo(active + 1)
+
+  const onKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev() }
+    if (e.key === 'ArrowRight') { e.preventDefault(); next() }
   }
 
   const item = ITEMS[active]
@@ -108,18 +126,36 @@ export default function Experience() {
           className="dfl-stage"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          onKeyDown={onKeyDown}
+          role="group"
+          aria-roledescription="carousel"
+          aria-label="Project figures"
         >
-          {/* image card — flies in from off-screen left and docks here */}
-          <div className={`dfl-visual is-${phase}`}>
-            {ITEMS.map((it, i) => (
-              <img
-                key={it.img}
-                src={it.img}
-                alt={it.alt}
-                className={i === active ? 'on' : ''}
-                aria-hidden={i !== active}
-              />
-            ))}
+          {/* image column — the arrows sit on this static wrapper so they hold
+              their place while the card itself travels in and out */}
+          <div className="dfl-imagecol">
+            <div className={`dfl-visual is-${phase}`}>
+              {ITEMS.map((it, i) => (
+                <img
+                  key={it.img}
+                  src={it.img}
+                  alt={it.alt}
+                  className={i === active ? 'on' : ''}
+                  aria-hidden={i !== active}
+                />
+              ))}
+            </div>
+
+            <button className="dfl-arrow dfl-arrow--prev" onClick={prev} aria-label="Previous">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
+            <button className="dfl-arrow dfl-arrow--next" onClick={next} aria-label="Next">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
           </div>
 
           {/* data card — stays put; contents ease in once the image docks */}
@@ -137,7 +173,7 @@ export default function Experience() {
                 <button
                   key={it.img}
                   className={`dfl-dot${i === active ? ' on' : ''}`}
-                  onClick={() => select(i)}
+                  onClick={() => goTo(i)}
                   aria-label={`Show ${it.label}`}
                   aria-current={i === active}
                 />
