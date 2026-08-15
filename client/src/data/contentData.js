@@ -24,7 +24,7 @@ export const outdoorItems = [
 export const specsTabs = [
   { key: 'infrastructure-tab', label: 'Infrastructure', img: 'images/clubhouse-entry.webp' },
   { key: 'features-tab', label: 'Green Features', img: 'images/spec-green-features.webp' },
-  { key: 'services-tab', label: 'Our Services', img: 'images/spec-services.webp' },
+  { key: 'services-tab', label: 'Our Services', img: 'images/services.webp' },
 ]
 
 export const specsContent = {
