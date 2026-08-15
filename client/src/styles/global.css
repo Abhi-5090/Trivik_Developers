@@ -998,6 +998,26 @@ h3 {
    Filling column-first keeps the numbering running 1…n down the left column
    and then on down the right, which is why the row count comes in as --rows.
    Height goes auto so the whole list is visible with no inner scrollbar. */
+/* Desktop: the list fills exactly the height of the map beside it, instead of
+   a fixed 540px that left dead space and sliced the last row in half.
+   Absolutely positioning it means its own content length can't drive the grid
+   row height — the map alone sets that, and the list scrolls inside it. */
+@media (min-width: 861px) {
+  .loc2-body { align-items: stretch; }
+  .loc2-map { align-self: start; }
+  .loc2-listcol { position: relative; min-height: 0; }
+  .loc2-list {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    overflow-y: auto;
+    /* softens the row that straddles the bottom edge, so a scrolling list
+       reads as "more below" rather than as a clipped row */
+    -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 38px), transparent 100%);
+    mask-image: linear-gradient(180deg, #000 calc(100% - 38px), transparent 100%);
+  }
+}
+
 @media (min-width: 1650px) {
   .loc2-list--two {
     display: grid;
@@ -1007,7 +1027,7 @@ h3 {
     column-gap: 26px;
     row-gap: 3px;
     height: auto;
-    overflow: visible;
+    overflow-y: auto;
     padding-right: 0;
     align-content: start;
   }
