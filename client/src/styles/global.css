@@ -12,6 +12,16 @@
 html {
   scroll-behavior: smooth;
   font-variation-settings: 'wdth' 100;
+  /* hide the browser's own page scrollbar at the right edge — scrolling still
+     works exactly as before, only the bar is not painted */
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* legacy Edge */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {         /* Chrome, Safari, Edge */
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 
@@ -3469,6 +3479,18 @@ h3 {
 
 .contact-text {
   flex: 1 1 300px;
+}
+.contact-text h3 {
+  font-size: clamp(34px, 3.6vw, 50px);
+  line-height: 1.08;
+  margin-bottom: 14px;
+}
+.contact-text p {
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.6;
+  color: #5f5c53;
+  max-width: 34ch;
+  margin: 0;
 }
 
 /* Updated contact form style */

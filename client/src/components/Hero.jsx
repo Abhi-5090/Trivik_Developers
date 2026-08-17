@@ -10,7 +10,7 @@ export default function Hero({ onEnquire }) {
       {/* branded entrance render — portrait crop on phones, landscape elsewhere */}
       <picture>
         <source media="(orientation: portrait)" srcSet="images/trivik-hero-gate-mobile.webp" />
-        <img src="images/trivik-hero-gate.webp" alt="Trivik Courtyard entrance" className="hero-bg" />
+        <img src="images/gallery-main.webp" alt="Trivik Courtyard entrance" className="hero-bg" />
       </picture>
 
       <button className="enquire-btn" onClick={onEnquire}>
