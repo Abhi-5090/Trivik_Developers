@@ -41,54 +41,89 @@ const CLOSE_MS = 380
 // Zooms the clicked tile up to full size using FLIP: the overlay image is first
 // transformed back onto the thumbnail's exact rect, then released to its natural
 // centred size, so it appears to grow out of the tile it came from.
-function Lightbox({ shot, onClose }) {
+function Lightbox({ items, index, setIndex, getRect, onClose }) {
   const imgRef = useRef(null)
   const [closing, setClosing] = useState(false)
+  const opened = useRef(false)
+  const busy = useRef(false)
+  const item = items[index]
 
-  const animate = useCallback((toThumb) => {
+  // FLIP between the overlay image and a tile's rect
+  const flip = useCallback((rect, toThumb) => {
     const el = imgRef.current
-    if (!el) return
-    // clear any transform first: if this runs twice (StrictMode) the element is
-    // already scaled down, and measuring it in that state yields I/F ~= 1, so
-    // nothing appears to animate
+    if (!el || !rect) return
     el.style.transition = 'none'
     el.style.transform = 'none'
     const F = el.getBoundingClientRect()
-    const I = shot.rect
-    const dx = I.left + I.width / 2 - (F.left + F.width / 2)
-    const dy = I.top + I.height / 2 - (F.top + F.height / 2)
-    const s = Math.max(I.width / F.width, 0.05)
+    const dx = rect.left + rect.width / 2 - (F.left + F.width / 2)
+    const dy = rect.top + rect.height / 2 - (F.top + F.height / 2)
+    const s = Math.max(rect.width / F.width, 0.05)
     const thumb = `translate(${dx}px, ${dy}px) scale(${s})`
 
     if (toThumb) {
-      el.style.transition = `transform ${CLOSE_MS}ms cubic-bezier(.4,0,.6,1), opacity ${CLOSE_MS}ms ease`
-      el.style.transform = thumb
-      el.style.opacity = '0'
+      el.style.transform = 'none'
+      el.getBoundingClientRect()
+      requestAnimationFrame(() => {
+        el.style.transition = `transform ${CLOSE_MS}ms cubic-bezier(.4,0,.6,1), opacity ${CLOSE_MS}ms ease`
+        el.style.transform = thumb
+        el.style.opacity = '0'
+      })
       return
     }
-    el.style.transition = 'none'
     el.style.transform = thumb
     el.style.opacity = '0.55'
-    el.getBoundingClientRect()          // flush, so the release actually animates
+    el.getBoundingClientRect()
     requestAnimationFrame(() => {
       el.style.transition = `transform ${OPEN_MS}ms cubic-bezier(.2,.8,.25,1), opacity ${Math.round(OPEN_MS * 0.55)}ms ease`
       el.style.transform = 'none'
       el.style.opacity = '1'
     })
-  }, [shot])
+  }, [])
 
-  useLayoutEffect(() => { animate(false) }, [animate])
+  // grow out of the tile — once, on open
+  useLayoutEffect(() => {
+    if (opened.current) return
+    opened.current = true
+    flip(getRect(index), false)
+  }, [flip, getRect, index])
+
+  // arrows slide the next image through in place; no FLIP while browsing
+  const navigate = useCallback((dir) => {
+    const el = imgRef.current
+    if (!el || busy.current || items.length < 2) return
+    busy.current = true
+    el.style.transition = 'transform .17s ease, opacity .17s ease'
+    el.style.transform = `translateX(${dir * -26}px)`
+    el.style.opacity = '0'
+    setTimeout(() => {
+      setIndex((i) => (i + dir + items.length) % items.length)
+      requestAnimationFrame(() => {
+        el.style.transition = 'none'
+        el.style.transform = `translateX(${dir * 26}px)`
+        el.getBoundingClientRect()
+        requestAnimationFrame(() => {
+          el.style.transition = 'transform .3s cubic-bezier(.2,.8,.25,1), opacity .3s ease'
+          el.style.transform = 'none'
+          el.style.opacity = '1'
+          busy.current = false
+        })
+      })
+    }, 170)
+  }, [items.length, setIndex])
 
   const close = useCallback(() => {
     if (closing) return
     setClosing(true)
-    animate(true)
+    flip(getRect(index), true)          // shrink back into whichever tile is showing
     setTimeout(onClose, CLOSE_MS)
-  }, [closing, animate, onClose])
+  }, [closing, flip, getRect, index, onClose])
 
-  // esc to dismiss, and hold the page still while open
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') close() }
+    const onKey = (e) => {
+      if (e.key === 'Escape') close()
+      if (e.key === 'ArrowLeft') { e.preventDefault(); navigate(-1) }
+      if (e.key === 'ArrowRight') { e.preventDefault(); navigate(1) }
+    }
     document.addEventListener('keydown', onKey)
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -96,7 +131,7 @@ function Lightbox({ shot, onClose }) {
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = prev
     }
-  }, [close])
+  }, [close, navigate])
 
   return createPortal(
     <div
@@ -104,10 +139,39 @@ function Lightbox({ shot, onClose }) {
       onClick={close}
       role="dialog"
       aria-modal="true"
-      aria-label={shot.alt}
+      aria-label={item.alt}
     >
-      <img ref={imgRef} src={shot.src} alt={shot.alt} onClick={(e) => e.stopPropagation()} />
-      <span className="amen-lb-cap">{shot.alt}</span>
+      <img
+        ref={imgRef}
+        src={`images/${item.n}.webp`}
+        alt={item.alt}
+        onClick={(e) => e.stopPropagation()}
+      />
+
+      <button
+        className="amen-lb-nav amen-lb-nav--prev"
+        onClick={(e) => { e.stopPropagation(); navigate(-1) }}
+        aria-label="Previous image"
+      >
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+      <button
+        className="amen-lb-nav amen-lb-nav--next"
+        onClick={(e) => { e.stopPropagation(); navigate(1) }}
+        aria-label="Next image"
+      >
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
+
+      <span className="amen-lb-cap">
+        {item.alt}
+        <em>{index + 1} / {items.length}</em>
+      </span>
+
       <button className="amen-lb-close" onClick={close} aria-label="Close">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
           <path d="M6 6l12 12M18 6 6 18" />
@@ -120,12 +184,14 @@ function Lightbox({ shot, onClose }) {
 
 export default function Amenities() {
   const [tab, setTab] = useState('clubhouse')
-  const [shot, setShot] = useState(null)
+  const [lbIndex, setLbIndex] = useState(null)
   const a = TABS.find((t) => t.key === tab)
 
-  const open = (e, src, alt) => {
-    setShot({ src, alt, rect: e.currentTarget.getBoundingClientRect() })
-  }
+  // measured live, so closing lands on whichever tile is currently showing
+  const getRect = useCallback((i) => {
+    const el = document.querySelectorAll('.amen-mosaic.on .amen-fig img')[i]
+    return el ? el.getBoundingClientRect() : null
+  }, [])
 
   return (
     <section className="amenities-section" id="amenities">
@@ -176,12 +242,12 @@ export default function Amenities() {
                     <img
                       src={`images/${g.n}.webp`}
                       alt={g.alt}
-                      onClick={(e) => open(e, `images/${g.n}.webp`, g.alt)}
+                      onClick={() => setLbIndex(i)}
                       tabIndex={tab === t.key ? 0 : -1}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault()
-                          open(e, `images/${g.n}.webp`, g.alt)
+                          setLbIndex(i)
                         }
                       }}
                     />
@@ -193,7 +259,15 @@ export default function Amenities() {
         </div>
       </div>
 
-      {shot && <Lightbox shot={shot} onClose={() => setShot(null)} />}
+      {lbIndex !== null && (
+        <Lightbox
+          items={a.imgs}
+          index={lbIndex}
+          setIndex={setLbIndex}
+          getRect={getRect}
+          onClose={() => setLbIndex(null)}
+        />
+      )}
     </section>
   )
 }

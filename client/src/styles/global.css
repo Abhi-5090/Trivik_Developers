@@ -2616,6 +2616,42 @@ h3 {
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
   pointer-events: none;
 }
+.amen-lb-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  translate: 0 -50%;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: background .25s ease, transform .25s ease;
+}
+.amen-lb-nav:hover { background: rgba(255, 255, 255, 0.32); transform: translateY(-50%) scale(1.08); }
+.amen-lb-nav--prev { left: clamp(12px, 2.5vw, 34px); }
+.amen-lb-nav--next { right: clamp(12px, 2.5vw, 34px); }
+
+.amen-lb-cap em {
+  display: block;
+  margin-top: 5px;
+  font-style: normal;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media (max-width: 600px) {
+  .amen-lb-nav { width: 44px; height: 44px; }
+}
+
 .amen-lb-close {
   position: absolute;
   top: clamp(14px, 3vh, 30px);
