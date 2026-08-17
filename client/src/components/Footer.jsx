@@ -11,16 +11,19 @@ const nav = [
 
 const socials = [
   {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/trivikdevelopers/',
+    outline: true,
+  },
+  {
     label: 'Facebook',
+    href: 'https://www.facebook.com/profile.php?id=61590723986778',
     path: 'M13 22v-8h2.7l.4-3H13V9c0-.9.3-1.5 1.6-1.5H16V4.9c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.3-3.8 3.8V11H7.5v3H10v8h3Z',
   },
   {
     label: 'YouTube',
+    href: 'https://www.youtube.com/@TrivikDevelopers',
     path: 'M23 12s0-3.3-.4-4.9c-.2-.8-.9-1.5-1.7-1.7C19.3 5 12 5 12 5s-7.3 0-8.9.4c-.8.2-1.5.9-1.7 1.7C1 8.7 1 12 1 12s0 3.3.4 4.9c.2.8.9 1.5 1.7 1.7C4.7 19 12 19 12 19s7.3 0 8.9-.4c.8-.2 1.5-.9 1.7-1.7.4-1.6.4-4.9.4-4.9ZM10 15V9l5 3-5 3Z',
-  },
-  {
-    label: 'LinkedIn',
-    path: 'M6.94 5A1.94 1.94 0 1 1 3 5a1.94 1.94 0 0 1 3.94 0ZM7 8.5H3V21h4V8.5Zm6.3 0H9.5V21h3.8v-6.6c0-3.4 4.4-3.7 4.4 0V21H21v-7.9c0-6-6.4-5.8-7.7-2.8V8.5Z',
   },
 ]
 
@@ -48,20 +51,28 @@ export default function Footer({ onBrochure }) {
                 Download Brochure
               </button>
               <div className="footer2-social">
-                {socials.map((s) => (
-                  <a key={s.label} href="#" aria-label={s.label}>
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                      <path d={s.path} />
-                    </svg>
+                {socials.map((sn) => (
+                  <a
+                    key={sn.label}
+                    href={sn.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={sn.label}
+                    title={sn.label}
+                  >
+                    {sn.outline ? (
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" />
+                      </svg>
+                    ) : (
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                        <path d={sn.path} />
+                      </svg>
+                    )}
                   </a>
                 ))}
-                <a href="#" aria-label="Instagram">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="5" />
-                    <circle cx="12" cy="12" r="4" />
-                    <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" />
-                  </svg>
-                </a>
               </div>
             </div>
           </div>
