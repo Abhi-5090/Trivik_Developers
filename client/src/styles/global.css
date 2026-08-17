@@ -571,8 +571,10 @@ h3 {
   z-index: 900;
   border: none;
   cursor: pointer;
+  /* vertical-rl alone reads top-to-bottom; the rotate(180deg) that used to be
+     here flipped it to bottom-to-top */
   writing-mode: vertical-rl;
-  transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%);
   transform-origin: center;
   background: #232323;
   color: #fff;
