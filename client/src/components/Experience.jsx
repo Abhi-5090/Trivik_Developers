@@ -14,7 +14,7 @@ const ITEMS = [
   {
     img: 'images/acres.webp',
     alt: 'Acres',
-    value: '25',
+    value: '23.5',
     label: 'Acres',
     note: 'Master-planned, low density, gated.',
   },

@@ -10,10 +10,13 @@ export default function Clubhouse() {
   return (
     <section className="clubhouse-section club2" id="clubhouse">
       <div className="container">
+        <div className="club2-head">
+          <span className="club2-eyebrow">The Clubhouse</span>
+          <h3>The soul of the community.</h3>
+        </div>
+
         <div className="club2-showcase">
           <div className="club2-intro">
-            <span className="club2-eyebrow">The Clubhouse</span>
-            <h3>The soul of the community.</h3>
             <p>
               Fourteen thousand square feet, built for one purpose: to turn a layout into a
               neighbourhood, and neighbours into the family next door.

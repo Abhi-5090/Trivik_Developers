@@ -36,11 +36,11 @@ export default function App() {
         <VideoSection ref={videoRef} />
         <MasterPlan />
         <Gallery />
-        <Experience />
         <Clubhouse />
         <Amenities />
         <Landscape />
         <Specifications />
+        <Experience />
         <Contact />
         <Popups
           popupOpen={popupOpen}

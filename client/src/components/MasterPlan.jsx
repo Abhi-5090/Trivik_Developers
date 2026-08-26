@@ -10,7 +10,7 @@ export default function MasterPlan() {
           <h3>Thoughtfully zoned, acre by acre.</h3>
           <p>
             306 Vaastu-compliant villa plots from 1,200 – 2,400 sq.ft, gathered around gardens,
-            a clubhouse and open sky across 25 master-planned acres.
+            a clubhouse and open sky across 23.5 master-planned acres.
           </p>
         </div>
 
@@ -29,7 +29,7 @@ export default function MasterPlan() {
           </div>
 
           <p className="mplan-note">
-            Hover the plan to see plot sizes and counts · 25 acres · 60 ft arterial avenue with
+            Hover the plan to see plot sizes and counts · 23.5 acres · 60 ft arterial avenue with
             30 ft &amp; 40 ft internal streets · integrated retail &amp; commercial zone.
           </p>
         </div>

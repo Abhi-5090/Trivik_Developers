@@ -102,29 +102,28 @@ export default function Location() {
     <section className="location-section loc2" id="location" ref={rootRef}>
       <div className="container">
         <div className="loc2-stage">
-          {/* ── header : copy + animated headline stats ── */}
+          {/* ── header : centred title, then animated highlight stats ── */}
           <div className="loc2-head">
-            <div className="loc2-head-copy">
-              <span className="loc2-eyebrow">The Location · Beerasandra, North Bengaluru</span>
-              <h3>Your world, within minutes.</h3>
-              <p>
-                Trivik Courtyard sits directly on the Satellite Town Ring Road, the artery of North
-                Bengaluru’s fastest-growing corridor — schools and universities, workplaces, healthcare
-                and the airport, all arranged around the community, minutes in every direction.
-              </p>
-            </div>
-            <div className="loc2-highlights">
-              {HIGHLIGHTS.map((h) => (
-                <div className="loc2-stat" key={h.label}>
-                  <span className="loc2-stat-ic">{h.icon}</span>
-                  <span className="loc2-stat-val">
-                    <CountUp to={h.value} run={inView} />
-                    <em>{h.unit}</em>
-                  </span>
-                  <span className="loc2-stat-label">{h.label}</span>
-                </div>
-              ))}
-            </div>
+            <span className="loc2-eyebrow">The Location · Beerasandra, North Bengaluru</span>
+            <h3>Your world, within minutes.</h3>
+            <p>
+              Trivik Courtyard sits directly on the Satellite Town Ring Road, the artery of North
+              Bengaluru’s fastest-growing corridor — schools and universities, workplaces, healthcare
+              and the airport, all arranged around the community, minutes in every direction.
+            </p>
+          </div>
+
+          <div className="loc2-highlights">
+            {HIGHLIGHTS.map((h) => (
+              <div className="loc2-stat" key={h.label}>
+                <span className="loc2-stat-ic">{h.icon}</span>
+                <span className="loc2-stat-val">
+                  <CountUp to={h.value} run={inView} />
+                  <em>{h.unit}</em>
+                </span>
+                <span className="loc2-stat-label">{h.label}</span>
+              </div>
+            ))}
           </div>
 
           {/* ── category tabs ── */}
