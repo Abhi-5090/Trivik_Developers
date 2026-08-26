@@ -2286,6 +2286,13 @@ h3 {
   gap: 12px;
   padding: 9px 4px;
   border-bottom: 1px solid #E7E3D6;
+  border-radius: 8px;
+  transition: background 0.2s ease, padding-inline 0.2s ease;
+}
+.mplan-row.hover {
+  background: rgba(139, 106, 45, 0.08);
+  padding-inline: 10px;
+  cursor: default;
 }
 .mplan-sw {
   width: 16px;
@@ -2325,10 +2332,43 @@ h3 {
   display: block;
 }
 
+/* the real sanctioned layout plan is a tall portrait drawing, not 16:9 —
+   give it its own aspect ratio and let it sit contained on the muted base */
+.mplan-graphic--plan {
+  flex: 0 0 auto;
+  aspect-ratio: 958 / 1800;
+  height: min(720px, 82vh);
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.mplan-realplan {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.mplan-real-base,
+.mplan-real-hl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+.mplan-real-hl {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.mplan-real-hl.on { opacity: 1; }
+
 @media (max-width: 900px) {
   .mplan-body { flex-direction: column; gap: 26px; align-items: stretch; }
   .mplan-left { flex: none; }
   .mplan-graphic { order: -1; width: 100%; }
+  .mplan-graphic--plan { height: 68vh; width: min(100%, calc(68vh * 958 / 1800)); }
 }
 @media (max-width: 768px) {
   .mplan-tab { font-size: 13px; padding: 10px 8px; }

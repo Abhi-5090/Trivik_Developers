@@ -1,22 +1,24 @@
 import { useEffect, useRef, useState } from 'react'
 import PlanGraphic from './PlanGraphic.jsx'
+import LayoutPlan from './LayoutPlan.jsx'
 
 const TABS = [
   { key: 'site', label: 'Site Analysis' },
   { key: 'landuse', label: 'Land Use' },
 ]
 
-// colours mirror PlanGraphic so the legend swatches match the map
-// Plot sizes in sq.ft, the unit the master narrative uses (metric equivalents:
-// 9.14×12.19 m, 9.14×15.24 m, 9.14×18.28 m, 12.19×18.28 m). The range matches
-// the narrative's stated 1,200 – 2,400 sq.ft.
+// Colours sampled directly from the sanctioned "TRIVIK LAYOUT PLAN" drawing's
+// own legend, so each swatch matches what lights up when you hover it (see
+// LayoutPlan.jsx). `key` maps a row to its images/masterplan-hl-{key}.webp
+// overlay. Plot sizes in sq.ft, the unit the master narrative uses (metric
+// equivalents: 9.14×12.19 m, 9.14×15.24 m, 9.14×18.28 m, 12.19×18.28 m).
 const SITE_ROWS = [
-  { color: '#3FA9A6', label: '30 × 40 ft · 1,200 sq.ft', value: '74' },
-  { color: '#5B9BD5', label: '30 × 50 ft · 1,500 sq.ft', value: '68' },
-  { color: '#7FB069', label: '30 × 60 ft · 1,800 sq.ft', value: '37' },
-  { color: '#D2695E', label: '40 × 60 ft · 2,400 sq.ft', value: '26' },
-  { color: '#9B8CC4', label: 'Odd Plots (as per site edge)', value: '100' },
-  { color: '#E8924A', label: 'Retail & Commercial', value: '02' },
+  { key: 's5', color: '#8DFFFF', label: '30 × 40 ft · 1,200 sq.ft', value: '74' },
+  { key: 's1', color: '#ABACFF', label: '30 × 50 ft · 1,500 sq.ft', value: '68' },
+  { key: 's4', color: '#F39B9A', label: '30 × 60 ft · 1,800 sq.ft', value: '37' },
+  { key: 's3', color: '#FEA8FF', label: '40 × 60 ft · 2,400 sq.ft', value: '26' },
+  { key: 'odd', color: '#BB8AB9', label: 'Odd Plots (as per site edge)', value: '100' },
+  { key: 'comm', color: '#C9BEA9', label: 'Retail & Commercial', value: '02' },
 ]
 
 const LAND_ROWS = [
@@ -33,6 +35,7 @@ const ROTATE_MS = 5500
 
 export default function MasterPlan() {
   const [active, setActive] = useState('site')
+  const [hoverKey, setHoverKey] = useState(null)
   const timer = useRef(null)
 
   const schedule = () => {
@@ -47,6 +50,7 @@ export default function MasterPlan() {
 
   const select = (k) => {
     setActive(k)
+    setHoverKey(null)
     schedule()
   }
 
@@ -83,7 +87,12 @@ export default function MasterPlan() {
 
             <div className="mplan-rows" key={active}>
               {rows.map((r) => (
-                <div className="mplan-row" key={r.label}>
+                <div
+                  className={`mplan-row${r.key && hoverKey === r.key ? ' hover' : ''}`}
+                  key={r.label}
+                  onMouseEnter={() => r.key && setHoverKey(r.key)}
+                  onMouseLeave={() => r.key && setHoverKey(null)}
+                >
                   <span className="mplan-sw" style={{ background: r.color }} />
                   <span className="mplan-rl">{r.label}</span>
                   <span className="mplan-rv">{r.value}</span>
@@ -97,9 +106,9 @@ export default function MasterPlan() {
             </p>
           </div>
 
-          <div className="mplan-graphic">
+          <div className={`mplan-graphic${active === 'site' ? ' mplan-graphic--plan' : ''}`}>
             <div className={`mplan-layer${active === 'site' ? ' on' : ''}`}>
-              <PlanGraphic mode="site" />
+              <LayoutPlan hoverKey={hoverKey} />
             </div>
             <div className={`mplan-layer${active === 'landuse' ? ' on' : ''}`}>
               <PlanGraphic mode="landuse" />
