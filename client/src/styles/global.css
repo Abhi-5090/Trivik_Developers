@@ -2218,135 +2218,32 @@ h3 {
 }
 
 .mplan-body {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  padding: 1.9em 2em;
+  padding: 1.9em 2em 2.2em;
   border-radius: 22px;
   background: #FCFBF7;
   border: 1px solid rgba(60, 58, 53, 0.08);
   box-shadow: 0 34px 70px -44px rgba(35, 33, 28, 0.4);
 }
-.mplan-left {
-  flex: 0 0 34%;
-  display: flex;
-  flex-direction: column;
-}
 
-/* tabs */
-.mplan-tabs {
-  display: flex;
-  gap: 6px;
-  padding: 6px;
-  margin-bottom: 20px;
-  border-radius: 14px;
-  background: #EFEDE4;
-  border: 1px solid rgba(60, 58, 53, 0.08);
-}
-.mplan-tab {
-  position: relative;
-  overflow: hidden;
-  flex: 1;
-  padding: 11px 14px;
-  border: none;
-  background: transparent;
-  border-radius: 10px;
-  font-family: var(--font);
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #6b675d;
-  cursor: pointer;
-  transition: background .25s ease, color .25s ease;
-}
-.mplan-tab:hover { color: #2b2a26; }
-.mplan-tab.active {
-  background: #3c3a35;
-  color: #fff;
-}
-.mplan-timer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 0;
-  background: rgba(255, 255, 255, 0.75);
-  animation: mplan-fill 5.5s linear forwards;
-}
-@keyframes mplan-fill { from { width: 0; } to { width: 100%; } }
-
-/* legend rows (crossfade on tab change via key remount) */
-.mplan-rows { animation: mplan-fade 0.55s ease; }
-@keyframes mplan-fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
-}
-.mplan-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 9px 4px;
-  border-bottom: 1px solid #E7E3D6;
-  border-radius: 8px;
-  transition: background 0.2s ease, padding-inline 0.2s ease;
-}
-.mplan-row.hover {
-  background: rgba(139, 106, 45, 0.08);
-  padding-inline: 10px;
-  cursor: default;
-}
-.mplan-sw {
-  width: 16px;
-  height: 16px;
-  border-radius: 5px;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06) inset;
-}
-.mplan-sw--empty { background: transparent; box-shadow: none; }
-.mplan-rl { flex: 1; font-size: 14px; color: #2E3D24; }
-.mplan-rv { font-weight: 600; font-size: 14px; color: #232323; }
-.mplan-total { border-bottom: none; border-top: 2px solid #D9D4C4; margin-top: 2px; }
-.mplan-total .mplan-rl, .mplan-total .mplan-rv { font-weight: 700; }
-.mplan-note { font-size: 14px; color: #8a8178; margin-top: 14px; }
-
-/* graphic (two crossfading layers) */
+/* real sanctioned layout plan, rotated to a wide landscape read — full
+   width of the card, edge to edge */
 .mplan-graphic {
-  flex: 1;
   position: relative;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
+  width: 100%;
+  aspect-ratio: 1800 / 958;
+  max-height: 78vh;
+  border-radius: 16px;
   overflow: hidden;
   background: #F1EEE4;
   border: 1px solid #E1DBCB;
   box-shadow: 0 26px 54px -30px rgba(35, 35, 35, 0.4);
-}
-.mplan-layer {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.7s ease;
-}
-.mplan-layer.on { opacity: 1; }
-.mplan-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* the real sanctioned layout plan is a tall portrait drawing, not 16:9 —
-   give it its own aspect ratio and let it sit contained on the muted base */
-.mplan-graphic--plan {
-  flex: 0 0 auto;
-  aspect-ratio: 958 / 1800;
-  height: min(720px, 82vh);
-  width: auto;
-  max-width: 100%;
-  margin-inline: auto;
 }
 
 .mplan-realplan {
   position: relative;
   width: 100%;
   height: 100%;
+  cursor: crosshair;
 }
 .mplan-real-base,
 .mplan-real-hl {
@@ -2364,14 +2261,59 @@ h3 {
 }
 .mplan-real-hl.on { opacity: 1; }
 
-@media (max-width: 900px) {
-  .mplan-body { flex-direction: column; gap: 26px; align-items: stretch; }
-  .mplan-left { flex: none; }
-  .mplan-graphic { order: -1; width: 100%; }
-  .mplan-graphic--plan { height: 68vh; width: min(100%, calc(68vh * 958 / 1800)); }
+/* tooltip that follows the cursor over the plan */
+.mplan-tip {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  transform: translate(18px, -50%);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 13px;
+  border-radius: 10px;
+  background: rgba(28, 27, 22, 0.92);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
 }
-@media (max-width: 768px) {
-  .mplan-tab { font-size: 13px; padding: 10px 8px; }
+.mplan-tip.flip { transform: translate(calc(-100% - 18px), -50%); }
+.mplan-tip b { font-size: 13.5px; font-weight: 600; color: #fff; }
+.mplan-tip em {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  color: #D8C9A3;
+}
+
+/* static reference legend — no hover, just tells you what the colours mean */
+.mplan-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 22px;
+}
+.mplan-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13.5px;
+  color: #4c4a43;
+}
+.mplan-legend-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08) inset;
+}
+
+.mplan-note { font-size: 14px; color: #8a8178; margin-top: 16px; }
+
+@media (max-width: 900px) {
+  .mplan-graphic { max-height: 62vh; }
 }
 
 
