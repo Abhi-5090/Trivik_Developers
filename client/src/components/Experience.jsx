@@ -28,7 +28,7 @@ const ITEMS = [
   {
     img: 'images/dfl-amenities.webp',
     alt: 'Amenities',
-    value: '25+',
+    value: '40',
     label: 'Amenities',
     note: 'Curated indoor and outdoor spaces.',
   },

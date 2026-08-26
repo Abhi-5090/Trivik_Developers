@@ -1,9 +1,9 @@
-// Figures per "Trivik Courtyard — The Master Narrative" (02 · Overview,
-// 06 · The Clubhouse): 14,000 sq.ft, 25+ curated amenities, 12 facilities.
+// Figures per the official amenities schedule: 14,000 sq.ft clubhouse,
+// 40 curated amenities in all, 25 of them within the clubhouse itself.
 const STATS = [
   { v: '14,000', u: 'sq. ft.', l: 'Clubhouse' },
-  { v: '25+', u: 'curated', l: 'Amenities' },
-  { v: '12', u: 'facilities', l: 'Within the club' },
+  { v: '40', u: 'curated', l: 'Amenities' },
+  { v: '25', u: 'facilities', l: 'Within the club' },
 ]
 
 export default function Clubhouse() {

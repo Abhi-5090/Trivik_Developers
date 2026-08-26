@@ -6,9 +6,9 @@ const TABS = [
   {
     key: 'clubhouse',
     label: 'Clubhouse',
-    count: 12,
+    count: 25,
     items: clubhouseItems,
-    cols: 2,
+    cols: 3,
     imgs: [
       { n: 'club-gym', alt: 'Gymnasium' },
       { n: 'club-cafeteria', alt: 'Café' },
@@ -21,7 +21,7 @@ const TABS = [
   {
     key: 'outdoor',
     label: 'Outdoor',
-    count: 13,
+    count: 15,
     items: outdoorItems,
     cols: 2,
     imgs: [
@@ -200,7 +200,7 @@ export default function Amenities() {
           <h3>Layers of luxury.</h3>
           <p>
             Amenities here aren’t a list to be counted — they’re the moments of a day, designed with care.
-            25+ curated indoor and outdoor spaces for play, wellness and belonging.
+            40 curated indoor and outdoor spaces for play, wellness and belonging.
           </p>
         </div>
 
