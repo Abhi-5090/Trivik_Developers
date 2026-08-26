@@ -2231,11 +2231,8 @@ h3 {
   width: 100%;
   aspect-ratio: 1800 / 958;
   max-height: 78vh;
-  border-radius: 16px;
   overflow: hidden;
   background: #FFFFFF;
-  border: 1px solid #E1DBCB;
-  box-shadow: 0 26px 54px -30px rgba(35, 35, 35, 0.4);
 }
 
 .mplan-realplan {
