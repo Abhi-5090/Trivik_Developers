@@ -106,10 +106,11 @@ export default function Location() {
           <div className="loc2-head">
             <div className="loc2-head-copy">
               <span className="loc2-eyebrow">The Location · Beerasandra, North Bengaluru</span>
-              <h3>Proximity to the world.</h3>
+              <h3>Your world, within minutes.</h3>
               <p>
-                Directly on the Satellite Town Ring Road — schools and universities, workplaces,
-                healthcare and the airport, all arranged around the community, minutes in every direction.
+                Trivik Courtyard sits directly on the Satellite Town Ring Road, the artery of North
+                Bengaluru’s fastest-growing corridor — schools and universities, workplaces, healthcare
+                and the airport, all arranged around the community, minutes in every direction.
               </p>
             </div>
             <div className="loc2-highlights">

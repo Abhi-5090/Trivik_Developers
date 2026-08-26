@@ -1,18 +1,21 @@
+// Copy per "Trivik Courtyard — The Master Narrative" (02 · Overview — The Story).
 export default function Intro() {
   return (
     <section className="intro-section fade-up">
       <div className="container">
         <div className="intro-content">
-          <h3>A life of your own design.</h3>
+          <h3>A life of serenity within. A world of possibility around.</h3>
           <p>
-            At Beerasandra, directly on the Satellite Town Ring Road in North Bengaluru, a 25-acre
-            master-planned community is quietly making its presence known. 306 Vaastu-compliant villa
-            plots gathered around gardens, a clubhouse and open sky — every piece of earth a blank
-            canvas, ready for homes as unique as the families who build them.
+            Waking to birdsong and the hush of tree-lined avenues. Mornings that wander past gardens
+            and a forest growing a little taller every day, with your children. Beyond the gates, the
+            finest schools, thriving workplaces and trusted hospitals stand within easy reach — and
+            when evening calls you back, the courtyard is waiting: lawns turning gold, the amphitheatre
+            filling with laughter, the sky above the stargazing deck reminding you how quietly vast
+            life can be.
           </p>
           <p>
             This is Trivik Courtyard. <br />
-            At the centre of everything that matters.
+            At Trivik Courtyard, everything happens around you.
           </p>
         </div>
       </div>

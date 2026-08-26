@@ -1,9 +1,3 @@
-const FACTS = [
-  { v: '25', l: 'Acres' },
-  { v: '306', l: 'Plots' },
-  { v: 'STRR', l: 'Road' },
-]
-
 export default function Hero({ onEnquire }) {
   return (
     <section className="home-section hero-min" id="home">
@@ -16,16 +10,6 @@ export default function Hero({ onEnquire }) {
       <button className="enquire-btn" onClick={onEnquire}>
         Enquire now
       </button>
-
-      {/* stats sit as a footer bar along the base of the hero render */}
-      <div className="hero-stats">
-        {FACTS.map((f) => (
-          <div className="hero-stat" key={f.l}>
-            <b>{f.v}</b>
-            <span>{f.l}</span>
-          </div>
-        ))}
-      </div>
     </section>
   )
 }
