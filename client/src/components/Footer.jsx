@@ -40,7 +40,7 @@ export default function Footer({ onBrochure }) {
               <img src="images/trivik-logo-white.png" alt="Trivik Developers" className="footer2-logo" />
             </a>
             <p className="footer2-tag">
-              306 Vaastu-compliant villa plots across 23.5 acres at Beerasandra, directly on the
+              306 Vaastu-compliant villa plots across 23 acres at Beerasandra, directly on the
               Satellite Town Ring Road, North Bengaluru.
             </p>
             <div className="footer2-actions">
