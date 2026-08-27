@@ -27,7 +27,7 @@ export const outdoorItems = [
 // Tab order: Infrastructure -> Our Services -> Green Features
 export const specsTabs = [
   { key: 'infrastructure-tab', label: 'Infrastructure', img: 'images/clubhouse-entry.webp' },
-  { key: 'features-tab', label: 'Green Features', img: 'images/spec-green-features.webp' },
+  { key: 'features-tab', label: 'Green Features', img: 'images/avenue-plantation.webp' },
   { key: 'services-tab', label: 'Utilities', img: 'images/services.webp' },
 ]
 
