@@ -17,6 +17,7 @@ export const landmarkCategories = [
       { n: 'Amity University', m: 2, x: 46.57, y: 33.0 },
       { n: 'Vihaan School', m: 3, x: 52.34, y: 32.25 },
       { n: 'GITAM University', m: 5, x: 44.02, y: 29.92 },
+      { n: 'Vogue Fashion Institute', m: 9, x: 34.87, y: 37.5 },
       { n: 'Cambridge Engg. College', m: 5, x: 46.66, y: 42.34 },
       { n: 'Vidyashilp University', m: 13, x: 44.19, y: 54.86 },
       { n: 'Embassy Academy', m: 15, x: 45.17, y: 53.74 },
@@ -56,6 +57,7 @@ export const landmarkCategories = [
     color: '#556B2F',
     places: [
       { n: 'ITIR', m: 5, x: 44.19, y: 27.68 },
+      { n: 'Wipro', m: 5, x: 43.28, y: 28.04 },
       { n: 'Industrial Zone', m: 8, x: 36.69, y: 34.68 },
       { n: 'Foxconn', m: 10, x: 47.73, y: 28.65 },
       { n: 'ISRO', m: 12, x: 74.58, y: 34.18 },
@@ -68,6 +70,7 @@ export const landmarkCategories = [
       { n: 'Northgate', m: 30, x: 46.41, y: 80.18 },
       { n: 'Amazon', m: 30, x: 48.14, y: 78.5 },
       { n: 'Phillips', m: 30, x: 45.5, y: 81.49 },
+      { n: 'Scion Square', m: 30, x: 45.09, y: 79.35 },
     ],
   },
   {
@@ -88,6 +91,7 @@ export const landmarkCategories = [
       { n: 'JW Marriott', m: 30, x: 66.26, y: 21.7 },
       { n: 'Golfshire', m: 30, x: 67.17, y: 21.14 },
       { n: 'RMZ Galleria', m: 35, x: 44.1, y: 85.6 },
+      { n: 'Mall of Asia', m: 40, x: 42.04, y: 93.16 },
     ],
   },
   {
@@ -114,6 +118,7 @@ export const landmarkCategories = [
       { n: 'Forum Mall', m: 25, x: 56.71, y: 58.23 },
       { n: 'Bullet Train Station', m: 30, x: 68.16, y: 50.01 },
       { n: 'Sub-Urban Rail Station', m: 30, x: 56.46, y: 52.43 },
+      { n: 'Kwin City', m: 36, x: 0.5, y: 29.55 },
     ],
   },
 ]

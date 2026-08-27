@@ -215,11 +215,6 @@ export default function Location() {
                 </div>
               </div>
 
-              <div className="loc2-legend">
-                <span className="loc2-legend-dot" />
-                <b>{cat.label}</b>
-                <span className="loc2-legend-count">{cat.places.length} places</span>
-              </div>
               <span className="loc2-compass" aria-hidden="true">N</span>
             </div>
           </div>
