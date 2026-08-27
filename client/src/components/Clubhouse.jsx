@@ -13,7 +13,7 @@ export default function Clubhouse() {
           hidden on desktop, where the heading is overlaid on the render instead */}
       <div className="container">
         <div className="club2-head club2-head--mobile">
-          <span className="club2-eyebrow">The Clubhouse</span>
+          <span className="club2-eyebrow">Club Aurum</span>
           <h3>The soul of the community.</h3>
         </div>
       </div>
