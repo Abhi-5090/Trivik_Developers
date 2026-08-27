@@ -10,6 +10,7 @@ const ITEMS = [
     value: '306',
     label: 'Villa Plots',
     note: 'Vaastu-compliant, 1,200 – 2,400 sq.ft.',
+    fit: 'contain',
   },
   {
     img: 'images/acres.webp',
@@ -28,9 +29,9 @@ const ITEMS = [
   {
     img: 'images/gallery-amphitheatre.webp',
     alt: 'Amenities',
-    value: '40',
+    value: '40+',
     label: 'Amenities',
-    note: 'Curated indoor and outdoor spaces.',
+    note: 'Indoor and outdoor spaces.',
   },
   {
     img: 'images/dfl-park.webp',
@@ -139,6 +140,7 @@ export default function Experience() {
                   alt={it.alt}
                   className={i === active ? 'on' : ''}
                   aria-hidden={i !== active}
+                  style={it.fit ? { objectFit: it.fit } : undefined}
                 />
               ))}
             </div>
