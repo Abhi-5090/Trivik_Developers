@@ -1,12 +1,14 @@
 const nav = [
   { href: '#home', label: 'Home' },
   { href: '#location', label: 'Location' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#master_plan', label: 'Master Plan' },
   { href: '#gallery', label: 'Gallery' },
-  { href: '#landscape', label: 'Landscape' },
   { href: '#clubhouse', label: 'Clubhouse' },
   { href: '#amenities', label: 'Amenities' },
+  { href: '#landscape', label: 'Landscape' },
   { href: '#specifications', label: 'Specifications' },
-  { href: '#walkthrough', label: 'Walkthrough' },
+  { href: '#contact', label: 'Contact Us' },
 ]
 
 const socials = [
