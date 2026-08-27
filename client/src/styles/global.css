@@ -2444,15 +2444,19 @@ h3 {
 .club2-stat em { font-style: normal; font-size: 12.5px; color: rgba(255, 255, 255, 0.68); margin-top: 5px; display: block; }
 
 @media (max-width: 900px) {
-  .club2 { min-height: min(760px, 88vh); align-items: flex-end; padding-bottom: 2.6em; }
+  /* the mobile crop opens onto sky — anchor the copy there instead of over
+     the entrance signage and pool deck lower in the frame */
+  .club2 { min-height: min(780px, 92vh); align-items: flex-start; padding-top: 6.5em; padding-bottom: 2.6em; }
+  .club2-bg { object-position: center top; }
   .club2-scrim {
     background:
-      linear-gradient(180deg, rgba(10, 9, 6, 0.15) 0%, rgba(10, 9, 6, 0.55) 50%, rgba(10, 9, 6, 0.92) 100%);
+      linear-gradient(180deg, rgba(10, 9, 6, 0.78) 0%, rgba(10, 9, 6, 0.5) 32%, rgba(10, 9, 6, 0.08) 56%, rgba(10, 9, 6, 0) 68%),
+      linear-gradient(0deg, rgba(10, 9, 6, 0.55) 0%, rgba(10, 9, 6, 0) 22%);
   }
   .club2-content { max-width: 100%; }
 }
 @media (max-width: 560px) {
-  .club2 { padding: 3em 0; min-height: min(640px, 84vh); }
+  .club2 { padding-top: 6em; min-height: min(700px, 88vh); }
   .club2-stats { gap: 16px; flex-wrap: wrap; }
 }
 

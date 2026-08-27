@@ -9,7 +9,12 @@ const STATS = [
 export default function Clubhouse() {
   return (
     <section className="clubhouse-section club2" id="clubhouse">
-      <img src="images/clubhouse-entry.webp" alt="Trivik Courtyard clubhouse" className="club2-bg" />
+      <picture>
+        {/* portrait crop on phones — open sky up top leaves room for the copy
+            without covering the entrance signage or the pool deck below */}
+        <source media="(max-width: 900px)" srcSet="images/clubhouse-entry-mobile.webp" />
+        <img src="images/clubhouse-entry.webp" alt="Trivik Courtyard clubhouse" className="club2-bg" />
+      </picture>
       <span className="club2-scrim" aria-hidden="true" />
 
       <div className="container">
