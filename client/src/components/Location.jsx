@@ -107,7 +107,7 @@ export default function Location() {
             <span className="loc2-eyebrow">
               The Location{' '}
               <span className="loc2-eyebrow-sub">
-                · Beerasandra, North<br className="loc2-eyebrow-br" /> Bengaluru
+                · Beerasandra,<br className="loc2-eyebrow-br" /> North Bengaluru
               </span>
             </span>
             <h3>Your world, within minutes.</h3>
