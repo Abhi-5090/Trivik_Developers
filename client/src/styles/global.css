@@ -809,17 +809,21 @@ h3 {
 .loc2-head {
   position: relative;
   text-align: center;
-  max-width: 720px;
+  max-width: 1300px;
   margin: 0 auto 30px;
 }
 .loc2-eyebrow {
   display: inline-block;
-  font-size: 45px;
+  font-size: clamp(20px, 2.9vw, 45px);
   font-weight: 700;
   letter-spacing: 2.4px;
   text-transform: uppercase;
   color: var(--brown);
   margin-bottom: 12px;
+  white-space: nowrap;
+}
+@media (max-width: 1150px) {
+  .loc2-eyebrow { white-space: normal; }
 }
 .loc2-head h3 {
   font-size: 38px;
