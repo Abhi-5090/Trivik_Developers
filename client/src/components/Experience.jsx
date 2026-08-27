@@ -19,14 +19,14 @@ const ITEMS = [
     note: 'Master-planned, low density, gated.',
   },
   {
-    img: 'images/clubhouse-wide.webp',
+    img: 'images/clubhouse-entry.webp',
     alt: 'Clubhouse',
     value: '14,000',
     label: 'Sq.ft Clubhouse',
     note: 'Wheelchair-accessible and lift-served.',
   },
   {
-    img: 'images/dfl-amenities.webp',
+    img: 'images/gallery-park.webp',
     alt: 'Amenities',
     value: '40',
     label: 'Amenities',

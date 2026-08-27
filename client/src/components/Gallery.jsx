@@ -7,7 +7,7 @@ import { Fancybox } from '@fancyapps/ui'
 // so the runway only ever travels in one direction — no snap-back at the end.
 const GALLERY = [
   { src: 'images/trivik-gate-daylight.webp', alt: 'The Grand Entrance by Day' },
-  { src: 'images/clubhouse-wide.webp', alt: 'Clubhouse & Pool Deck' },
+  { src: 'images/clubhouse-entry.webp', alt: 'Clubhouse & Pool Deck' },
   { src: 'images/gallery-main.webp', alt: 'The Grand Entrance' },
   { src: 'images/gallery-entrance.webp', alt: 'Arrival Gateway' },
   { src: 'images/gallery-avenue.webp', alt: 'Tree-lined Avenue' },
