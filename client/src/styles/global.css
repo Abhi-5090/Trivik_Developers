@@ -2390,9 +2390,14 @@ h3 {
 
 /* Clubhouse section */
 /* ===== Clubhouse — copy + a single full-width render ===== */
-/* full-bleed, hero-style: the clubhouse render fills the whole section,
-   copy sits over it on a dark scrim — same language as the site's Hero */
-.club2 {
+/* Desktop: full-bleed, hero-style — the clubhouse render fills the whole
+   frame, copy sits over it on a dark scrim, same language as the site's
+   Hero. Mobile: the heading moves above the image (like every other
+   section) and only the copy + stats stay overlaid on the render. */
+.club2 { position: relative; background: #F5F4ED; }
+.club2-head--mobile { display: none; }
+
+.club2-frame {
   position: relative;
   display: flex;
   align-items: center;
@@ -2416,19 +2421,24 @@ h3 {
     linear-gradient(100deg, rgba(10, 9, 6, 0.88) 0%, rgba(10, 9, 6, 0.66) 34%, rgba(10, 9, 6, 0.22) 62%, rgba(10, 9, 6, 0.02) 80%),
     linear-gradient(0deg, rgba(10, 9, 6, 0.45) 0%, rgba(10, 9, 6, 0) 32%);
 }
-.club2 .container { position: relative; z-index: 2; }
+.club2-frame-inner { position: relative; z-index: 2; }
 .club2-content { max-width: 620px; }
+.club2-head--desktop { display: block; }
 .club2-eyebrow {
   display: inline-block;
   font-size: 45px; font-weight: 700; letter-spacing: 2.4px; text-transform: uppercase;
-  color: #E7D9B4; margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 .club2-head h3 {
   font-size: 38px; font-weight: 600; line-height: 1.12;
-  color: #fff;
   margin-bottom: 20px;
 }
-.club2-content p {
+.club2-head--desktop .club2-eyebrow { color: #E7D9B4; }
+.club2-head--desktop h3 { color: #fff; }
+.club2-head--mobile .club2-eyebrow { color: #8b6e4e; }
+.club2-head--mobile h3 { color: #2b2a26; }
+
+.club2-copy p {
   font-family: var(--font);
   font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.86); margin-bottom: 12px;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
@@ -2444,20 +2454,40 @@ h3 {
 .club2-stat em { font-style: normal; font-size: 12.5px; color: rgba(255, 255, 255, 0.68); margin-top: 5px; display: block; }
 
 @media (max-width: 900px) {
-  /* the mobile crop opens onto sky — anchor the copy there instead of over
-     the entrance signage and pool deck lower in the frame */
-  .club2 { min-height: min(780px, 92vh); align-items: flex-start; padding-top: 6.5em; padding-bottom: 2.6em; }
+  .club2-head--mobile { display: block; text-align: center; padding: 2.6em 0 1.4em; }
+  .club2-head--desktop { display: none; }
+
+  /* the mobile crop opens onto sky at the top and quiet paving at the
+     bottom — copy anchors near the tree up top, stats pin to the base,
+     nothing covers the entrance signage or pool in the middle */
+  .club2-frame { display: block; min-height: min(560px, 66vh); padding: 0; }
   .club2-bg { object-position: center top; }
   .club2-scrim {
     background:
-      linear-gradient(180deg, rgba(10, 9, 6, 0.78) 0%, rgba(10, 9, 6, 0.5) 32%, rgba(10, 9, 6, 0.08) 56%, rgba(10, 9, 6, 0) 68%),
-      linear-gradient(0deg, rgba(10, 9, 6, 0.55) 0%, rgba(10, 9, 6, 0) 22%);
+      linear-gradient(180deg, rgba(10, 9, 6, 0.6) 0%, rgba(10, 9, 6, 0.12) 26%, rgba(10, 9, 6, 0) 40%, rgba(10, 9, 6, 0.08) 60%, rgba(10, 9, 6, 0.72) 100%);
   }
-  .club2-content { max-width: 100%; }
+  .club2-frame-inner.container { width: 100%; margin: 0; }
+  .club2-frame-inner {
+    position: absolute;
+    inset: 0;
+  }
+  .club2-content {
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.3em 1.15em 1.1em;
+  }
+  .club2-copy p { font-size: 12px; line-height: 1.5; margin-bottom: 8px; }
+  .club2-stats { margin-top: 0; padding-top: 12px; gap: 14px; }
+  .club2-stat b { font-size: 17px; }
+  .club2-stat b span { font-size: 10px; }
+  .club2-stat em { font-size: 10px; margin-top: 3px; }
 }
 @media (max-width: 560px) {
-  .club2 { padding-top: 6em; min-height: min(700px, 88vh); }
-  .club2-stats { gap: 16px; flex-wrap: wrap; }
+  .club2-frame { min-height: min(520px, 76vh); }
+  .club2-stats { gap: 12px; }
 }
 
 
