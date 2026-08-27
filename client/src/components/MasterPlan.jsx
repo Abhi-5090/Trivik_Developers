@@ -29,7 +29,7 @@ export default function MasterPlan() {
           </div>
 
           <p className="mplan-note">
-            Hover the plan to see plot sizes and counts · 23.5 acres · 60 ft arterial avenue with
+            Hover or tap the plan to see plot sizes and counts · 23.5 acres · 60 ft arterial avenue with
             30 ft &amp; 40 ft internal streets · integrated retail &amp; commercial zone.
           </p>
         </div>

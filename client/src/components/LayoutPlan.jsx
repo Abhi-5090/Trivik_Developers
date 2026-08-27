@@ -1,43 +1,65 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { PLAN_CATEGORIES, PLAN_CATEGORY_BY_INDEX } from '../data/masterPlanCategories.js'
 
-// Natural pixel size of masterplan-layout.webp / masterplan-hitmap.png / the
-// masterplan-hl-*.webp overlays — all generated together, so they share
-// this exact resolution.
-const NATURAL_W = 1800
-const NATURAL_H = 958
+// Natural pixel size of the desktop (landscape, rotated) assets vs. the
+// mobile (portrait, unrotated) assets — both sets share these dimensions
+// with their own masterplan-hitmap / masterplan-hl-*.webp files.
+const DESKTOP_SIZE = { w: 1800, h: 958 }
+const MOBILE_SIZE = { w: 958, h: 1800 }
+const MOBILE_QUERY = '(max-width: 900px)'
 
 const CAT_BY_KEY = Object.fromEntries(PLAN_CATEGORIES.map((c) => [c.key, c]))
 
-// The sanctioned "TRIVIK LAYOUT PLAN" drawing. A hidden canvas loads
-// masterplan-hitmap.png (each plot category flat-filled with a unique index
-// in its R channel) so mousemove can sample one pixel and know exactly which
-// plot category sits under the cursor — no manual hotspot coordinates.
+function useIsMobilePlan() {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(MOBILE_QUERY).matches
+  )
+  useEffect(() => {
+    const mql = window.matchMedia(MOBILE_QUERY)
+    const onChange = (e) => setIsMobile(e.matches)
+    mql.addEventListener('change', onChange)
+    return () => mql.removeEventListener('change', onChange)
+  }, [])
+  return isMobile
+}
+
+// The sanctioned "TRIVIK LAYOUT PLAN" drawing. A hidden canvas loads the
+// matching masterplan-hitmap image (each plot category flat-filled with a
+// unique index in its R channel) so a pointer position can sample one pixel
+// and know exactly which plot category sits there — no manual hotspots.
+// Desktop hovers with the mouse; touch devices tap to select instead, since
+// there's no hover — the same hit-test just runs from a click/tap event too.
 export default function LayoutPlan() {
+  const isMobile = useIsMobilePlan()
+  const size = isMobile ? MOBILE_SIZE : DESKTOP_SIZE
+  const suffix = isMobile ? '-mobile' : ''
+
   const wrapRef = useRef(null)
   const ctxRef = useRef(null)
   const [ready, setReady] = useState(false)
-  const [hover, setHover] = useState(null) // { key, x, y }
+  const [hover, setHover] = useState(null) // { key, x, y, flip }
 
   useEffect(() => {
+    setReady(false)
+    setHover(null)
     const canvas = document.createElement('canvas')
-    canvas.width = NATURAL_W
-    canvas.height = NATURAL_H
+    canvas.width = size.w
+    canvas.height = size.h
     const ctx = canvas.getContext('2d', { willReadFrequently: true })
     const img = new Image()
-    img.src = 'images/masterplan-hitmap.png'
+    img.src = `images/masterplan-hitmap${suffix}.png`
     img.onload = () => {
       ctx.drawImage(img, 0, 0)
       ctxRef.current = ctx
       setReady(true)
     }
-  }, [])
+  }, [suffix, size.w, size.h])
 
-  const handleMove = useCallback((e) => {
+  const handlePoint = useCallback((e) => {
     if (!ready || !wrapRef.current) return
     const rect = wrapRef.current.getBoundingClientRect()
     const elAR = rect.width / rect.height
-    const natAR = NATURAL_W / NATURAL_H
+    const natAR = size.w / size.h
 
     // the image sits inside this box via object-fit: contain — work out the
     // actual displayed rect (letterboxed left/right or top/bottom)
@@ -61,8 +83,8 @@ export default function LayoutPlan() {
       return
     }
 
-    const nx = Math.min(NATURAL_W - 1, Math.floor((px / dispW) * NATURAL_W))
-    const ny = Math.min(NATURAL_H - 1, Math.floor((py / dispH) * NATURAL_H))
+    const nx = Math.min(size.w - 1, Math.floor((px / dispW) * size.w))
+    const ny = Math.min(size.h - 1, Math.floor((py / dispH) * size.h))
     const [r, , , a] = ctxRef.current.getImageData(nx, ny, 1, 1).data
     const key = a ? PLAN_CATEGORY_BY_INDEX[r] : null
     if (!key) {
@@ -72,21 +94,27 @@ export default function LayoutPlan() {
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
     setHover({ key, x, y, flip: x > rect.width * 0.6 })
-  }, [ready])
+  }, [ready, size.w, size.h])
 
   const handleLeave = () => setHover(null)
 
   return (
-    <div className="mplan-realplan" ref={wrapRef} onMouseMove={handleMove} onMouseLeave={handleLeave}>
+    <div
+      className="mplan-realplan"
+      ref={wrapRef}
+      onMouseMove={handlePoint}
+      onMouseLeave={handleLeave}
+      onClick={handlePoint}
+    >
       <img
-        src="images/masterplan-layout.webp"
+        src={`images/masterplan-layout${suffix}.webp`}
         alt="Trivik Courtyard sanctioned layout plan"
         className="mplan-real-base"
       />
       {PLAN_CATEGORIES.map((c) => (
         <img
           key={c.key}
-          src={`images/masterplan-hl-${c.key}.webp`}
+          src={`images/masterplan-hl-${c.key}${suffix}.webp`}
           alt=""
           aria-hidden="true"
           className={`mplan-real-hl${hover?.key === c.key ? ' on' : ''}`}
