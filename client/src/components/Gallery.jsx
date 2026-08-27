@@ -16,7 +16,7 @@ const GALLERY = [
   { src: 'images/gallery-park.webp', alt: "Children's Park" },
   { src: 'images/gallery-yoga.webp', alt: 'Yoga Deck' },
   { src: 'images/gallery-tabletennis.webp', alt: 'Pickleball Court' },
-  { src: 'images/amphitheatre-new.webp', alt: 'Amphitheatre' },
+  { src: 'images/gallery-amphitheatre.webp', alt: 'Amphitheatre' },
 ]
 
 const N = GALLERY.length
