@@ -16,6 +16,7 @@ import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import Popups from './components/Popups.jsx'
 import ProgressRing from './components/ProgressRing.jsx'
+import WhatsAppButton from './components/WhatsAppButton.jsx'
 
 export default function App() {
   useSiteEffects()
@@ -50,6 +51,7 @@ export default function App() {
         />
       </main>
       <Footer onBrochure={openPopup} />
+      <WhatsAppButton />
       <ProgressRing />
     </>
   )

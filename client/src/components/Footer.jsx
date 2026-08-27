@@ -27,6 +27,11 @@ const socials = [
     href: 'https://www.youtube.com/@TrivikDevelopers',
     path: 'M23 12s0-3.3-.4-4.9c-.2-.8-.9-1.5-1.7-1.7C19.3 5 12 5 12 5s-7.3 0-8.9.4c-.8.2-1.5.9-1.7 1.7C1 8.7 1 12 1 12s0 3.3.4 4.9c.2.8.9 1.5 1.7 1.7C4.7 19 12 19 12 19s7.3 0 8.9-.4c.8-.2 1.5-.9 1.7-1.7.4-1.6.4-4.9.4-4.9ZM10 15V9l5 3-5 3Z',
   },
+  {
+    label: 'Google Maps',
+    href: 'https://www.google.com/maps/search/?api=1&query=Trivik+Courtyard+Beerasandra+Satellite+Town+Ring+Road+Devanahalli+Bengaluru',
+    path: 'M12 2C7.6 2 4 5.6 4 10c0 5.4 6.9 11.1 7.2 11.4.2.2.5.2.8 0C12.1 21.1 19 15.4 19 10c0-4.4-3.6-8-7-8Zm0 10.8a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z',
+  },
 ]
 
 export default function Footer({ onBrochure }) {

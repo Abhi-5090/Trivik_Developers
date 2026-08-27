@@ -4,6 +4,8 @@ import LayoutPlan from './LayoutPlan.jsx'
 
 export default function MasterPlan() {
   const [legendKey, setLegendKey] = useState(null)
+  const [planHoverKey, setPlanHoverKey] = useState(null)
+  const activeKey = legendKey ?? planHoverKey
 
   return (
     <section className="mplan-section" id="master_plan">
@@ -18,13 +20,13 @@ export default function MasterPlan() {
 
         <div className="mplan-body">
           <div className="mplan-graphic">
-            <LayoutPlan legendKey={legendKey} />
+            <LayoutPlan legendKey={legendKey} onHoverKeyChange={setPlanHoverKey} />
           </div>
 
           <div className="mplan-legend">
             {PLAN_CATEGORIES.map((c) => (
               <div
-                className={`mplan-legend-item${legendKey === c.key ? ' active' : ''}`}
+                className={`mplan-legend-item${activeKey === c.key ? ' active' : ''}`}
                 key={c.key}
                 onMouseEnter={() => setLegendKey(c.key)}
                 onMouseLeave={() => setLegendKey((k) => (k === c.key ? null : k))}

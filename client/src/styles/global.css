@@ -48,7 +48,7 @@ body {
   font-family: var(--font);
   font-weight: 400;
   color: #2C2E27;
-  background: #F5F4ED;
+  background: #FFFFFF;
   overflow-x: hidden;
 }
 
@@ -314,7 +314,7 @@ h3 {
 
   width: 320px;
 
-  background: #EEF0E7;
+  background: #F5F4ED;
 
   border-radius: 12px;
 
@@ -807,7 +807,7 @@ h3 {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #F5F4ED;
+  background-color: #FFFFFF;
 }
 
 .intro-content:before {
@@ -842,7 +842,7 @@ h3 {
    LOCATION — "Proximity to the world" connectivity atlas (redesign)
    =================================================================== */
 .loc2 {
-  background: #F5F4ED;
+  background: #FFFFFF;
   padding: 3.4em 0 3.8em;
 }
 .loc2 * { box-sizing: border-box; }
@@ -860,7 +860,7 @@ h3 {
   padding: 2.4em 2.4em 1.7em;
   color: #4a473f;
   /* light card, same warm family as the page behind — floats via shadow */
-  background: #FCFBF7;
+  background: #F5F4ED;
   border: 1px solid rgba(60, 58, 53, 0.08);
   box-shadow: 0 36px 74px -42px rgba(35, 33, 28, 0.42), 0 6px 20px -14px rgba(35, 33, 28, 0.18);
 }
@@ -907,7 +907,7 @@ h3 {
   position: relative;
   padding: 15px 16px 14px;
   border-radius: 14px;
-  background: #fff;
+  background: #F5F4ED;
   border: 1px solid rgba(60, 58, 53, 0.1);
   box-shadow: 0 4px 14px -9px rgba(35, 33, 28, 0.16);
   overflow: hidden;
@@ -957,7 +957,7 @@ h3 {
   margin: 0 auto 22px;
   justify-content: center;
   border-radius: 16px;
-  background: #EFEDE4;
+  background: #F5F4ED;
   border: 1px solid rgba(60, 58, 53, 0.08);
 }
 .loc2-tab {
@@ -1139,7 +1139,7 @@ h3 {
   padding: 11px 22px;
   border: 1px solid rgba(60, 58, 53, 0.22);
   border-radius: 999px;
-  background: #fff;
+  background: #F5F4ED;
   color: var(--ink);
   font-size: 13px;
   font-weight: 700;
@@ -1393,7 +1393,7 @@ h3 {
     min-height: 54px;
     padding: 11px 12px;
     border-radius: 10px;
-    background: #fff;
+    background: #F5F4ED;
     border: 1px solid rgba(60, 58, 53, 0.1);
     font-size: 12.5px;
     line-height: 1.25;
@@ -1519,7 +1519,7 @@ h3 {
   aspect-ratio: 16 / 10;
   border-radius: 20px;
   overflow: hidden;
-  background: #e7e4da;
+  background: #F5F4ED;
   box-shadow: 0 34px 70px -40px rgba(35, 33, 28, 0.6);
   /* resting (off-stage) position — far enough left to clear the viewport,
      with opacity carrying the last of the exit so no hard edge shows */
@@ -1588,7 +1588,7 @@ h3 {
   justify-content: center;
   padding: 2.2em 1.9em;
   border-radius: 20px;
-  background: #FCFBF7;
+  background: #F5F4ED;
   border: 1px solid rgba(60, 58, 53, 0.1);
   box-shadow: 0 30px 64px -44px rgba(35, 33, 28, 0.45);
 }
@@ -2050,7 +2050,7 @@ h3 {
 ============================================================ */
 .gallery-section {
   padding: 3em 0 3.6em;
-  background-color: #F5F4ED;
+  background-color: #FFFFFF;
 }
 .jg-head { text-align: center; margin-bottom: 1.8em; }
 .jg-head h3 {
@@ -2093,7 +2093,7 @@ h3 {
   border-radius: 13px;
   overflow: hidden;
   cursor: pointer;
-  background: #e7e4da;
+  background: #F5F4ED;
   opacity: .58;
   box-shadow: 0 6px 16px -12px rgba(35, 33, 28, 0.5);
   transition: opacity .3s ease, border-color .3s ease, transform .35s ease;
@@ -2116,7 +2116,7 @@ h3 {
   margin-inline: auto;
   border-radius: 16px;
   overflow: hidden;
-  background: #e7e4da;
+  background: #F5F4ED;
   box-shadow: 0 34px 68px -40px rgba(35, 33, 28, 0.55);
 }
 .runway-slide {
@@ -2241,7 +2241,7 @@ h3 {
    MASTER PLAN — auto-rotating tabs + custom plot graphic
 ============================================================ */
 .mplan-section {
-  background: #F5F4ED;
+  background: #FFFFFF;
   padding: 3em 0 3.6em;
 }
 .mplan-head {
@@ -2264,7 +2264,7 @@ h3 {
 .mplan-body {
   padding: 1.9em 2em 2.2em;
   border-radius: 22px;
-  background: #FCFBF7;
+  background: #F5F4ED;
   border: 1px solid rgba(60, 58, 53, 0.08);
   box-shadow: 0 34px 70px -44px rgba(35, 33, 28, 0.4);
 }
@@ -2382,7 +2382,7 @@ h3 {
    frame, copy sits over it on a dark scrim, same language as the site's
    Hero. Mobile: the heading moves above the image (like every other
    section) and only the copy + stats stay overlaid on the render. */
-.club2 { position: relative; background: #F5F4ED; }
+.club2 { position: relative; background: #FFFFFF; }
 .club2-head--mobile { display: none; }
 
 .club2-frame {
@@ -2481,7 +2481,7 @@ h3 {
 
 /* Amenities section */
 .amenities-section {
-  background: #F5F4ED;
+  background: #FFFFFF;
   padding: 2.4em 0 2.8em;
 }
 
@@ -2515,7 +2515,7 @@ h3 {
   gap: 8px;
   padding: 9px 22px;
   border: 1px solid #D9D4C4;
-  background: #fff;
+  background: #F5F4ED;
   border-radius: 30px;
   font-family: var(--font);
   font-size: 14px;
@@ -3089,7 +3089,7 @@ h3 {
    LANDSCAPE — centred heading + three static road-section cards
    ============================================================ */
 .landscape-section {
-  background: #F5F4ED;
+  background: #FFFFFF;
   padding: 3em 0 3.6em;
 }
 
@@ -3172,7 +3172,7 @@ h3 {
   margin: 0;
   border-radius: 18px;
   overflow: hidden;
-  background: #FCFBF7;
+  background: #F5F4ED;
   border: 1px solid rgba(60, 58, 53, 0.1);
   box-shadow: 0 26px 54px -38px rgba(35, 33, 28, 0.45);
 }
@@ -3181,7 +3181,7 @@ h3 {
    inside the same frame, which reads as the real difference in width. */
 .verdant-card-media {
   aspect-ratio: 4 / 5;
-  background: #fff;
+  background: #F5F4ED;
   padding: 14px;
 }
 .verdant-card-media img {
@@ -3215,7 +3215,7 @@ h3 {
 
 /* Specifications Section */
 .specifications-section {
-  background-color: #F5F4ED;
+  background-color: #FFFFFF;
   padding-block: 4em;
 }
 
@@ -3247,7 +3247,7 @@ h3 {
   gap: 9px;
   padding: 10px 20px;
   border: 1px solid #D9D4C4;
-  background: #fff;
+  background: #F5F4ED;
   border-radius: 30px;
   font-family: var(--font);
   font-size: 14px;
@@ -3521,7 +3521,7 @@ h3 {
 
 /* Contact section */
 .contact-section {
-  background-color: #F3F4EC;
+  background-color: #FFFFFF;
   padding-block: 4em;
 }
 .contact-section .container {
@@ -4199,6 +4199,30 @@ height: 30px;
   visibility: visible;
 }
 
+.whatsapp-wrap {
+  position: fixed;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background: #25D366;
+  color: #fff;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  right: 2em;
+  bottom: calc(2em + 64px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 200ms linear;
+}
+.whatsapp-wrap:hover { transform: translateY(-2px); background: #20bd5a; }
+.whatsapp-wrap.active-progress {
+  opacity: 1;
+  visibility: visible;
+}
+
 .progress-wrap::after {
   content: '';
   background: url(https://assetzproperty.com/soraandsaki//wp-content/uploads/2024/03/arrow.svg) no-repeat center/15px;
@@ -4471,7 +4495,7 @@ p { font-family: var(--font); }
    VIDEO / EXPERIENCE section (after Location)
 ============================================================ */
 .video-section {
-  background: #F5F4ED;
+  background: #FFFFFF;
   padding: 2.2em 0 2.6em;
 }
 .video-header {

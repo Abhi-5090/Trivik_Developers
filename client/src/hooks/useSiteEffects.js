@@ -82,6 +82,7 @@ export default function useSiteEffects() {
     /* ---- progress ring + scroll-to-top ---- */
     const progressPath = document.querySelector('.progress-wrap path')
     const progressWrap = document.querySelector('.progress-wrap')
+    const whatsappWrap = document.querySelector('.whatsapp-wrap')
     let pathLength = 0
     if (progressPath) {
       pathLength = progressPath.getTotalLength()
@@ -100,6 +101,10 @@ export default function useSiteEffects() {
       if (progressWrap) {
         if (scroll > 50) progressWrap.classList.add('active-progress')
         else progressWrap.classList.remove('active-progress')
+      }
+      if (whatsappWrap) {
+        if (scroll > 50) whatsappWrap.classList.add('active-progress')
+        else whatsappWrap.classList.remove('active-progress')
       }
     }
     const onProgressClick = (e) => {

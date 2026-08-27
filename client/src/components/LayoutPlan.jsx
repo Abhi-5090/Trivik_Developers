@@ -29,7 +29,7 @@ function useIsMobilePlan() {
 // and know exactly which plot category sits there — no manual hotspots.
 // Desktop hovers with the mouse; touch devices tap to select instead, since
 // there's no hover — the same hit-test just runs from a click/tap event too.
-export default function LayoutPlan({ legendKey = null }) {
+export default function LayoutPlan({ legendKey = null, onHoverKeyChange }) {
   const isMobile = useIsMobilePlan()
   const size = isMobile ? MOBILE_SIZE : DESKTOP_SIZE
   const suffix = isMobile ? '-mobile' : ''
@@ -97,6 +97,11 @@ export default function LayoutPlan({ legendKey = null }) {
   }, [ready, size.w, size.h])
 
   const handleLeave = () => setHover(null)
+
+  // report the pointer-hovered category up so the legend can glow too
+  useEffect(() => {
+    onHoverKeyChange?.(hover?.key ?? null)
+  }, [hover?.key, onHoverKeyChange])
 
   // a legend row can drive the same highlight from outside — the pointer
   // hover still wins while it's active, since it also carries the tooltip
