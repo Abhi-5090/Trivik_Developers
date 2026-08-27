@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { PLAN_CATEGORIES } from '../data/masterPlanCategories.js'
 import LayoutPlan from './LayoutPlan.jsx'
 
 export default function MasterPlan() {
+  const [legendKey, setLegendKey] = useState(null)
+
   return (
     <section className="mplan-section" id="master_plan">
       <div className="container">
@@ -15,12 +18,17 @@ export default function MasterPlan() {
 
         <div className="mplan-body">
           <div className="mplan-graphic">
-            <LayoutPlan />
+            <LayoutPlan legendKey={legendKey} />
           </div>
 
           <div className="mplan-legend">
             {PLAN_CATEGORIES.map((c) => (
-              <div className="mplan-legend-item" key={c.key}>
+              <div
+                className={`mplan-legend-item${legendKey === c.key ? ' active' : ''}`}
+                key={c.key}
+                onMouseEnter={() => setLegendKey(c.key)}
+                onMouseLeave={() => setLegendKey((k) => (k === c.key ? null : k))}
+              >
                 <span className="mplan-legend-dot" style={{ background: c.color }} />
                 {c.label}
               </div>

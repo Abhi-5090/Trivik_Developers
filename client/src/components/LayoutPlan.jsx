@@ -29,7 +29,7 @@ function useIsMobilePlan() {
 // and know exactly which plot category sits there — no manual hotspots.
 // Desktop hovers with the mouse; touch devices tap to select instead, since
 // there's no hover — the same hit-test just runs from a click/tap event too.
-export default function LayoutPlan() {
+export default function LayoutPlan({ legendKey = null }) {
   const isMobile = useIsMobilePlan()
   const size = isMobile ? MOBILE_SIZE : DESKTOP_SIZE
   const suffix = isMobile ? '-mobile' : ''
@@ -98,6 +98,10 @@ export default function LayoutPlan() {
 
   const handleLeave = () => setHover(null)
 
+  // a legend row can drive the same highlight from outside — the pointer
+  // hover still wins while it's active, since it also carries the tooltip
+  const activeKey = hover?.key ?? legendKey
+
   return (
     <div
       className="mplan-realplan"
@@ -117,7 +121,7 @@ export default function LayoutPlan() {
           src={`images/masterplan-hl-${c.key}${suffix}.webp`}
           alt=""
           aria-hidden="true"
-          className={`mplan-real-hl${hover?.key === c.key ? ' on' : ''}`}
+          className={`mplan-real-hl${activeKey === c.key ? ' on' : ''}`}
         />
       ))}
 

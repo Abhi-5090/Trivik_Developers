@@ -2348,6 +2348,13 @@ h3 {
   gap: 9px;
   font-size: 13.5px;
   color: #4c4a43;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.mplan-legend-item.active,
+.mplan-legend-item:hover {
+  color: #2b2a26;
+  font-weight: 600;
 }
 .mplan-legend-dot {
   width: 13px;
