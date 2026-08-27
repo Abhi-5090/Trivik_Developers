@@ -1494,7 +1494,7 @@ h3 {
   aspect-ratio: 16 / 10;
   border-radius: 20px;
   overflow: hidden;
-  background: #F5F4ED;
+  background: #FFFFFF;
   box-shadow: 0 34px 70px -40px rgba(35, 33, 28, 0.6);
   /* resting (off-stage) position — far enough left to clear the viewport,
      with opacity carrying the last of the exit so no hard edge shows */
