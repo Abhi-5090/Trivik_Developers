@@ -1309,10 +1309,6 @@ h3 {
   .loc2-more { display: inline-flex; }
 }
 @media (max-width: 620px) {
-  /* the eyebrow was reading too small here against the headline below it —
-     swap the two so the label leads and the headline steps back */
-  .loc2-eyebrow { font-size: 30px; }
-  .loc2-head h3 { font-size: 22px; }
   .loc2-highlights { grid-template-columns: repeat(2, 1fr); }
 
   /* Categories used to sit in a horizontally-scrolling strip with the
@@ -2323,7 +2319,6 @@ h3 {
   .mplan-graphic { aspect-ratio: 958 / 1800; max-height: 82vh; }
   /* redundant with tap-to-highlight on the plan itself at this size */
   .mplan-legend { display: none; }
-  .mplan-eyebrow { font-size: 30px; }
 }
 
 
@@ -4560,4 +4555,30 @@ p { font-family: var(--font); }
   .proximity-wrap, .isochrone-wrap, .landuse-wrap { gap: 32px; }
   .proximity-detail h4 { font-size: 22px; }
   .isochrone-copy h4, .landuse-tables h4 { font-size: 20px; }
+}
+
+/* ============================================================
+   UNIFORM MOBILE HEADING SCALE
+   Same two sizes across every section on phones: the eyebrow leads,
+   bold and bigger, the headline underneath steps back. Placed at the
+   end of the file so it reliably wins the cascade over each
+   section's own (equal-specificity) base rule.
+============================================================ */
+@media (max-width: 620px) {
+  .loc2-eyebrow,
+  .mplan-eyebrow,
+  .jg-eyebrow,
+  .club2-eyebrow,
+  .verdant-eyebrow,
+  .dfl-eyebrow {
+    font-size: 32px;
+  }
+  .loc2-head h3,
+  .mplan-head h3,
+  .jg-head h3,
+  .club2-head h3,
+  .verdant-head h3,
+  .dfl-head h3 {
+    font-size: 22px;
+  }
 }
