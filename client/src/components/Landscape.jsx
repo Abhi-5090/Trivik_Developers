@@ -15,12 +15,14 @@ export default function Landscape() {
   return (
     <section className="landscape-section" id="landscape">
       <div className="container">
-        {/* branded avenue-plantation opener */}
+        {/* branded avenue-plantation opener: heading above, caption on the image */}
+        <div className="verdant-open-head">
+          <h3>Landscape &amp; Avenue Plantation</h3>
+        </div>
         <div className="verdant-banner">
           <img src="images/avenue-plantation.webp" alt="Trivik Courtyard tree-lined avenue" />
           <div className="verdant-banner-copy">
-            <span className="verdant-banner-eyebrow">Landscape &amp; Avenue Plantation</span>
-            <h3>A grand, tree-lined arrival.</h3>
+            <h4>A grand, tree-lined arrival.</h4>
             <p>Avenue plantation on both sides of every road — a canopy of green that welcomes you home.</p>
           </div>
         </div>

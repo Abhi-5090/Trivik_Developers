@@ -430,6 +430,60 @@ h3 {
     z-index: 1;
 }
 
+/* ===== Hero stats — footer bar along the base of the render ===== */
+.hero-stats {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(22px, 5vw, 70px);
+  padding: clamp(8px, 1.2vh, 12px) clamp(18px, 5vw, 60px);
+  background: rgba(20, 22, 17, 0.42);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  opacity: 0;
+  animation: heroStatsIn 1s ease 0.5s forwards;
+}
+@keyframes heroStatsIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.hero-stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.hero-stat b {
+  font-family: var(--font);
+  font-size: clamp(16px, 1.6vw, 21px);
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.hero-stat span {
+  margin-top: 4px;
+  font-size: clamp(8px, .8vw, 9.5px);
+  font-weight: 600;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: #DAC9A3;
+}
+.hero-stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: calc(-1 * clamp(13px, 3vw, 44px));
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.26);
+}
+
 /* portrait screens: keep the render's sky open, bar still pinned to the base */
 @media (orientation: portrait) {
   .home-section::before {
@@ -445,6 +499,8 @@ h3 {
   .hero-bg { object-position: center top; }
 }
 @media (max-width: 600px) {
+  .hero-stats { gap: 26px; padding-inline: 14px; }
+  .hero-stat:not(:last-child)::after { height: 18px; right: -13px; }
   /* icon-only brochure button so the header never crowds on phones */
   .brochure-btn { padding: 9px 12px; }
   .brochure-btn span { display: none; }
@@ -2257,9 +2313,13 @@ h3 {
 }
 .mplan-real-hl {
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.35s ease, filter 0.35s ease;
 }
-.mplan-real-hl.on { opacity: 1; }
+.mplan-real-hl.on {
+  opacity: 1;
+  /* lifts the selected plot off the flat drawing */
+  filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.42)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+}
 
 /* tooltip that follows the cursor over the plan */
 .mplan-tip {
@@ -2286,6 +2346,12 @@ h3 {
   font-size: 12px;
   font-weight: 600;
   color: #D8C9A3;
+  display: inline-block;
+  animation: mplanNumPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes mplanNumPop {
+  from { transform: scale(0.55) translateY(3px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
 }
 
 /* static reference legend — no hover, just tells you what the colours mean */
@@ -2316,7 +2382,7 @@ h3 {
   /* the sanctioned drawing is naturally portrait — let it run tall & narrow
      on phones instead of the rotated landscape read used on desktop
      (LayoutPlan.jsx swaps to the matching portrait assets at this width) */
-  .mplan-graphic { aspect-ratio: 958 / 1800; max-height: 82vh; }
+  .mplan-graphic { aspect-ratio: 958 / 1800; max-height: 66vh; }
   /* redundant with tap-to-highlight on the plan itself at this size */
   .mplan-legend { display: none; }
 }
@@ -2684,15 +2750,16 @@ h3 {
   .amen-list { align-self: start; }
 }
 @media (max-width: 700px) {
-  /* one column on phones — two columns at this type size wrap the longer
-     labels onto three lines and the rows stop lining up */
+  /* two columns on phones too: 25 clubhouse items split 13/12, the 15
+     outdoor items split 8/7 */
   .amen-list.cols-2,
-  .amen-list.cols-3 { columns: 1; }
-  .amen-list li { margin-bottom: 15px; }
+  .amen-list.cols-3 {
+    columns: 2;
+    column-gap: 22px;
+  }
+  .amen-list li { margin-bottom: 15px; font-size: 15px; }
 }
 @media (max-width: 600px) {
-  /* stays single-column here — see the 700px rule above */
-  .amen-list.cols-3, .amen-list.cols-2 { columns: 1; }
   .amen-mosaic-stack { height: 300px; }
   .amen-mosaic { gap: 7px; }
   .amen-head p { font-size: 17px; }
@@ -3005,6 +3072,17 @@ h3 {
 }
 
 /* branded avenue-plantation opener banner */
+.verdant-open-head {
+  text-align: center;
+  margin-bottom: 1.1em;
+}
+.verdant-open-head h3 {
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #2b2a26;
+}
+
 .verdant-banner {
   position: relative;
   border-radius: 18px;
@@ -3025,37 +3103,29 @@ h3 {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(16, 26, 12, 0.82) 0%, rgba(16, 26, 12, 0.5) 38%, rgba(16, 26, 12, 0.05) 66%, transparent 100%);
+  background: linear-gradient(0deg, rgba(16, 26, 12, 0.85) 0%, rgba(16, 26, 12, 0.38) 45%, rgba(16, 26, 12, 0) 70%);
 }
+/* caption sits at the base of the image, small and unobtrusive */
 .verdant-banner-copy {
   position: absolute;
   z-index: 2;
-  left: clamp(24px, 4vw, 54px);
-  top: 50%;
-  transform: translateY(-50%);
+  left: clamp(20px, 4vw, 40px);
+  right: clamp(20px, 4vw, 40px);
+  bottom: 16px;
   max-width: 480px;
   color: #fff;
 }
-.verdant-banner-eyebrow {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-  color: #C7DBA1;
-  margin-bottom: 10px;
-}
-.verdant-banner-copy h3 {
-  font-size: clamp(24px, 3vw, 34px);
+.verdant-banner-copy h4 {
+  font-size: 15px;
   font-weight: 600;
-  line-height: 1.14;
-  margin-bottom: 10px;
+  line-height: 1.3;
+  margin-bottom: 3px;
   color: #fff;
 }
 .verdant-banner-copy p {
   font-family: var(--font);
-  font-size: 16.5px;
-  line-height: 1.6;
+  font-size: 12.5px;
+  line-height: 1.5;
   color: #E6EAD9;
   margin: 0;
 }
@@ -4564,7 +4634,7 @@ p { font-family: var(--font); }
   .club2-eyebrow,
   .verdant-eyebrow,
   .dfl-eyebrow {
-    font-size: 32px;
+    font-size: 26px;
   }
   .loc2-head h3,
   .mplan-head h3,
@@ -4576,11 +4646,11 @@ p { font-family: var(--font); }
   }
 }
 
-/* Location eyebrow: "Beerasandra, North Bengaluru" reads smaller than
-   "The Location" and breaks onto its own line on phones — desktop keeps
+/* Location eyebrow: "Beerasandra, North Bengaluru" breaks onto its own
+   line on phones, same size as "The Location" above it — desktop keeps
    it all one continuous line at full size. */
 .loc2-eyebrow-br { display: none; }
 @media (max-width: 620px) {
-  .loc2-eyebrow-sub { font-size: 20px; }
+  .loc2-eyebrow-sub { font-size: 26px; }
   .loc2-eyebrow-br { display: inline; }
 }
