@@ -4652,7 +4652,13 @@ p { font-family: var(--font); }
   .jg-head h3,
   .club2-head h3,
   .verdant-head h3,
-  .dfl-head h3 {
+  .dfl-head h3,
+  .intro-content h3,
+  .amen-head h3,
+  .verdant-open-head h3,
+  .spec2-head h3,
+  .contact-text h3,
+  .video-header h3 {
     font-size: 22px;
   }
 }
