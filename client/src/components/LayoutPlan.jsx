@@ -98,9 +98,6 @@ export default function LayoutPlan() {
 
   const handleLeave = () => setHover(null)
 
-  const hoverCat = hover && CAT_BY_KEY[hover.key]
-  const origin = hoverCat ? hoverCat.origin[isMobile ? 'mobile' : 'desktop'] : null
-
   return (
     <div
       className="mplan-realplan"
@@ -109,25 +106,20 @@ export default function LayoutPlan() {
       onMouseLeave={handleLeave}
       onClick={handlePoint}
     >
-      <div
-        className={`mplan-real-stage${hover ? ' zoomed' : ''}`}
-        style={origin ? { transformOrigin: `${origin.x}% ${origin.y}%` } : undefined}
-      >
+      <img
+        src={`images/masterplan-layout${suffix}.webp`}
+        alt="Trivik Courtyard sanctioned layout plan"
+        className="mplan-real-base"
+      />
+      {PLAN_CATEGORIES.map((c) => (
         <img
-          src={`images/masterplan-layout${suffix}.webp`}
-          alt="Trivik Courtyard sanctioned layout plan"
-          className="mplan-real-base"
+          key={c.key}
+          src={`images/masterplan-hl-${c.key}${suffix}.webp`}
+          alt=""
+          aria-hidden="true"
+          className={`mplan-real-hl${hover?.key === c.key ? ' on' : ''}`}
         />
-        {PLAN_CATEGORIES.map((c) => (
-          <img
-            key={c.key}
-            src={`images/masterplan-hl-${c.key}${suffix}.webp`}
-            alt=""
-            aria-hidden="true"
-            className={`mplan-real-hl${hover?.key === c.key ? ' on' : ''}`}
-          />
-        ))}
-      </div>
+      ))}
 
       {hover && (
         <div
