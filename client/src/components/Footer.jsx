@@ -29,7 +29,7 @@ const socials = [
   },
   {
     label: 'Google Maps',
-    href: 'https://www.google.com/maps/search/?api=1&query=Trivik+Courtyard+Beerasandra+Satellite+Town+Ring+Road+Devanahalli+Bengaluru',
+    href: 'https://maps.app.goo.gl/kZrwLWx238n84hXV7',
     path: 'M12 2C7.6 2 4 5.6 4 10c0 5.4 6.9 11.1 7.2 11.4.2.2.5.2.8 0C12.1 21.1 19 15.4 19 10c0-4.4-3.6-8-7-8Zm0 10.8a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z',
   },
 ]
@@ -113,13 +113,14 @@ export default function Footer({ onBrochure }) {
               enquiries@trivikdevelopers.com
             </a>
             <p className="footer2-addr">
-              <b>Site</b>
-              Trivik Courtyard, Beerasandra, on the Satellite Town Ring Road (STRR), Devanahalli Taluk,
-              Bengaluru, Karnataka
+              <b>Site Address</b>
+              Survey No.14/10, Beerasandra Village, Kundana Hobli, Devanahalli Taluk,
+              Bangalore Rural 562110
             </p>
             <p className="footer2-addr">
-              <b>Corporate</b>
-              Trivik Developers LLP, Bengaluru, Karnataka
+              <b>Registered Office</b>
+              Trivik Developers LLP, No. 708, 3rd Floor, 15th A Main, Sector A, Yelahanka,
+              Bengaluru – 560064
             </p>
           </div>
         </div>
