@@ -4582,3 +4582,12 @@ p { font-family: var(--font); }
     font-size: 22px;
   }
 }
+
+/* Location eyebrow: "Beerasandra, North Bengaluru" reads smaller than
+   "The Location" and breaks onto its own line on phones — desktop keeps
+   it all one continuous line at full size. */
+.loc2-eyebrow-br { display: none; }
+@media (max-width: 620px) {
+  .loc2-eyebrow-sub { font-size: 20px; }
+  .loc2-eyebrow-br { display: inline; }
+}

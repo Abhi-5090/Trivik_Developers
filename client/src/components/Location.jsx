@@ -104,7 +104,12 @@ export default function Location() {
         <div className="loc2-stage">
           {/* ── header : centred title, then animated highlight stats ── */}
           <div className="loc2-head">
-            <span className="loc2-eyebrow">The Location · Beerasandra, North Bengaluru</span>
+            <span className="loc2-eyebrow">
+              The Location{' '}
+              <span className="loc2-eyebrow-sub">
+                · Beerasandra, North<br className="loc2-eyebrow-br" /> Bengaluru
+              </span>
+            </span>
             <h3>Your world, within minutes.</h3>
             <p>
               Trivik Courtyard sits directly on the Satellite Town Ring Road, the artery of North
