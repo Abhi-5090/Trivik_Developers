@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 // then exits back out to the left as the next image takes its place.
 const ITEMS = [
   {
-    img: 'images/dfl-plots.webp',
+    img: 'images/masterplan-layout.webp',
     alt: 'Master layout',
     value: '306',
     label: 'Villa Plots',
@@ -26,7 +26,7 @@ const ITEMS = [
     note: 'Wheelchair-accessible and lift-served.',
   },
   {
-    img: 'images/gallery-park.webp',
+    img: 'images/gallery-amphitheatre.webp',
     alt: 'Amenities',
     value: '40',
     label: 'Amenities',
@@ -34,9 +34,9 @@ const ITEMS = [
   },
   {
     img: 'images/dfl-park.webp',
-    alt: 'Courts',
+    alt: 'Theme Parks',
     value: '4',
-    label: 'Courts',
+    label: 'Theme Parks',
     note: 'Green, Play, Zen and Bloom.',
   },
 ]
@@ -117,7 +117,6 @@ export default function Experience() {
     <section className="experience-section dfl" id="experience" ref={rootRef}>
       <div className="container">
         <div className="dfl-head">
-          <span className="dfl-eyebrow">The Development</span>
           <h3>Designed for life.</h3>
           <p>Experience the luxury of ease.</p>
         </div>

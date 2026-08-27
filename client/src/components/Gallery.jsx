@@ -120,7 +120,6 @@ export default function Gallery() {
     <section className="gallery-section" id="gallery">
       <div className="container">
         <div className="jg-head">
-          <span className="jg-eyebrow">Gallery</span>
           <h3>A world where your story takes shape.</h3>
         </div>
 

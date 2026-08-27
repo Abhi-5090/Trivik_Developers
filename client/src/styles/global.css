@@ -868,19 +868,6 @@ h3 {
   max-width: 1300px;
   margin: 0 auto 30px;
 }
-.loc2-eyebrow {
-  display: inline-block;
-  font-size: clamp(20px, 2.9vw, 45px);
-  font-weight: 700;
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-  color: var(--brown);
-  margin-bottom: 12px;
-  white-space: nowrap;
-}
-@media (max-width: 1150px) {
-  .loc2-eyebrow { white-space: normal; }
-}
 .loc2-head h3 {
   font-size: 38px;
   font-weight: 600;
@@ -896,10 +883,19 @@ h3 {
   max-width: 560px;
   margin-inline: auto;
 }
+.loc2-subplace {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #8a8178;
+}
 
 .loc2-highlights {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 14px;
   margin-bottom: 30px;
 }
@@ -1497,11 +1493,6 @@ h3 {
 }
 
 .dfl-head { text-align: center; margin-bottom: 2.2em; }
-.dfl-eyebrow {
-  display: inline-block;
-  font-size: 45px; font-weight: 700; letter-spacing: 2.4px;
-  text-transform: uppercase; color: #8b6e4e; margin-bottom: 10px;
-}
 .dfl-head h3 {
   font-size: 38px;
   font-weight: 600; color: #2b2a26; line-height: 1.1; margin-bottom: 8px;
@@ -2058,11 +2049,6 @@ h3 {
   background-color: #F5F4ED;
 }
 .jg-head { text-align: center; margin-bottom: 1.8em; }
-.jg-eyebrow {
-  display: inline-block;
-  font-size: 45px; font-weight: 700; letter-spacing: 2.4px; text-transform: uppercase;
-  color: #8b6e4e; margin-bottom: 10px;
-}
 .jg-head h3 {
   font-size: 38px; font-weight: 600; color: #2b2a26; line-height: 1.15;
 }
@@ -2259,11 +2245,6 @@ h3 {
   max-width: 780px;
   margin: 0 auto 2em;
 }
-.mplan-eyebrow {
-  display: inline-block;
-  font-size: 45px; font-weight: 700; letter-spacing: 2.4px;
-  text-transform: uppercase; color: #8b6e4e; margin-bottom: 10px;
-}
 .mplan-head h3 {
   font-size: 38px;
   font-weight: 600; color: #2b2a26; line-height: 1.12; margin-bottom: 10px;
@@ -2429,7 +2410,7 @@ h3 {
   font-size: 38px; font-weight: 600; line-height: 1.12;
   margin-bottom: 20px;
 }
-.club2-head--desktop .club2-eyebrow { color: #E7D9B4; }
+.club2-head--desktop .club2-eyebrow { color: #fff; }
 .club2-head--desktop h3 { color: #fff; }
 .club2-head--mobile .club2-eyebrow { color: #8b6e4e; }
 .club2-head--mobile h3 { color: #2b2a26; }
@@ -3107,9 +3088,9 @@ h3 {
   margin-bottom: 1.1em;
 }
 .verdant-open-head h3 {
-  font-size: clamp(24px, 2.6vw, 32px);
+  font-size: 38px;
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.12;
   color: #2b2a26;
 }
 
@@ -3146,15 +3127,15 @@ h3 {
   color: #fff;
 }
 .verdant-banner-copy h4 {
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 600;
-  line-height: 1.3;
-  margin-bottom: 3px;
+  line-height: 1.25;
+  margin-bottom: 5px;
   color: #fff;
 }
 .verdant-banner-copy p {
   font-family: var(--font);
-  font-size: 12.5px;
+  font-size: 16px;
   line-height: 1.5;
   color: #E6EAD9;
   margin: 0;
@@ -3165,11 +3146,6 @@ h3 {
 }
 
 .verdant-head { text-align: center; margin-bottom: 2.2em; }
-.verdant-eyebrow {
-  display: inline-block;
-  font-size: 45px; font-weight: 700; letter-spacing: 2.4px;
-  text-transform: uppercase; color: #8b6e4e; margin-bottom: 10px;
-}
 .verdant-head h3 {
   font-size: 38px;
   font-weight: 600; color: #2b2a26; line-height: 1.12; margin: 0;
@@ -4658,12 +4634,7 @@ p { font-family: var(--font); }
    section's own (equal-specificity) base rule.
 ============================================================ */
 @media (max-width: 620px) {
-  .loc2-eyebrow,
-  .mplan-eyebrow,
-  .jg-eyebrow,
-  .club2-eyebrow,
-  .verdant-eyebrow,
-  .dfl-eyebrow {
+  .club2-eyebrow {
     font-size: 26px;
   }
   .loc2-head h3,
@@ -4674,13 +4645,4 @@ p { font-family: var(--font); }
   .dfl-head h3 {
     font-size: 22px;
   }
-}
-
-/* Location eyebrow: "Beerasandra, North Bengaluru" breaks onto its own
-   line on phones, same size as "The Location" above it — desktop keeps
-   it all one continuous line at full size. */
-.loc2-eyebrow-br { display: none; }
-@media (max-width: 620px) {
-  .loc2-eyebrow-sub { font-size: 26px; }
-  .loc2-eyebrow-br { display: inline; }
 }

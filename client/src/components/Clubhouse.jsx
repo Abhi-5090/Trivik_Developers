@@ -1,9 +1,9 @@
 // Figures per the official amenities schedule: 14,000 sq.ft clubhouse,
-// 40 curated amenities in all, 25 of them within the clubhouse itself.
+// 40+ amenities in all, 25+ of them within the clubhouse itself.
 const STATS = [
   { v: '14,000', u: 'sq. ft.', l: 'Clubhouse' },
-  { v: '40', u: 'curated', l: 'Amenities' },
-  { v: '25', u: 'facilities', l: 'Within the club' },
+  { v: '40+', u: '', l: 'Amenities' },
+  { v: '25+', u: '', l: 'Indoor Amenities' },
 ]
 
 export default function Clubhouse() {
@@ -31,7 +31,7 @@ export default function Clubhouse() {
           <div className="club2-content">
             {/* desktop-only heading — overlaid on the image, hero-style */}
             <div className="club2-head club2-head--desktop">
-              <span className="club2-eyebrow">The Clubhouse</span>
+              <span className="club2-eyebrow">Club Aurum</span>
               <h3>The soul of the community.</h3>
             </div>
 
@@ -52,7 +52,7 @@ export default function Clubhouse() {
               {STATS.map((s) => (
                 <div className="club2-stat" key={s.l}>
                   <b>
-                    {s.v} <span>{s.u}</span>
+                    {s.v} {s.u && <span>{s.u}</span>}
                   </b>
                   <em>{s.l}</em>
                 </div>

@@ -4,7 +4,10 @@ export default function Intro() {
     <section className="intro-section fade-up">
       <div className="container">
         <div className="intro-content">
-          <h3>A life of serenity within. A world of possibility around.</h3>
+          <h3>
+            A life of serenity within.<br />
+            A world of possibility around.
+          </h3>
           <p>
             Waking to birdsong and the hush of tree-lined avenues. Mornings that wander past gardens
             and a forest growing a little taller every day, with your children. Beyond the gates, the
@@ -14,8 +17,7 @@ export default function Intro() {
             life can be.
           </p>
           <p>
-            This is Trivik Courtyard. <br />
-            At Trivik Courtyard, everything happens around you.
+            <b>At Trivik Courtyard, everything happens around you.</b>
           </p>
         </div>
       </div>

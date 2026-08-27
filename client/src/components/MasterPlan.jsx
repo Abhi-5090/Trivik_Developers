@@ -6,7 +6,6 @@ export default function MasterPlan() {
     <section className="mplan-section" id="master_plan">
       <div className="container">
         <div className="mplan-head">
-          <span className="mplan-eyebrow">The Master Plan</span>
           <h3>Thoughtfully zoned, acre by acre.</h3>
           <p>
             306 Vaastu-compliant villa plots from 1,200 – 2,400 sq.ft, gathered around gardens,

@@ -28,7 +28,7 @@ export const outdoorItems = [
 export const specsTabs = [
   { key: 'infrastructure-tab', label: 'Infrastructure', img: 'images/clubhouse-entry.webp' },
   { key: 'features-tab', label: 'Green Features', img: 'images/spec-green-features.webp' },
-  { key: 'services-tab', label: 'Our Services', img: 'images/services.webp' },
+  { key: 'services-tab', label: 'Utilities', img: 'images/services.webp' },
 ]
 
 export const specsContent = {
@@ -61,6 +61,15 @@ export const specsContent = {
       ],
     },
     {
+      heading: 'Services',
+      points: [
+        'Sewage Treatment Plant.',
+        'Water Treatment Plant with underground sump tank.',
+        'Organic Waste Convertor.',
+        'DG provided for common services.',
+      ],
+    },
+    {
       heading: 'Plumbing',
       points: [
         'Underground dual water supply system.',
@@ -68,15 +77,6 @@ export const specsContent = {
         'Underground sanitary lines connected to a central STP.',
         'Centralized OHT & UG sump of suitable capacity with adequate head/pressure.',
         'Drip irrigation network for the majority of common landscape areas.',
-      ],
-    },
-    {
-      heading: 'Services',
-      points: [
-        'Sewage Treatment Plant.',
-        'Water Treatment Plant with underground sump tank.',
-        'Organic Waste Convertor.',
-        'DG provided for common services.',
       ],
     },
   ],

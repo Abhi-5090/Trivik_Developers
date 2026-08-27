@@ -200,7 +200,7 @@ export default function Amenities() {
           <h3>Layers of luxury.</h3>
           <p>
             Amenities here aren’t a list to be counted — they’re the moments of a day, designed with care.
-            40 curated indoor and outdoor spaces for play, wellness and belonging.
+            40+ indoor and outdoor spaces for play, wellness and belonging.
           </p>
         </div>
 

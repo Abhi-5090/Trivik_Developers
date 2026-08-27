@@ -6,9 +6,9 @@ const RoadIcon = () => (
     <path d="M8 3 5 21M16 3l3 18M12 4v2M12 10v2M12 16v2" />
   </svg>
 )
-const BoltIcon = () => (
+const DropIcon = () => (
   <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+    <path d="M12 3c4 5 7 8.5 7 12a7 7 0 0 1-14 0c0-3.5 3-7 7-12Z" />
   </svg>
 )
 const LeafIcon = () => (
@@ -17,7 +17,7 @@ const LeafIcon = () => (
     <path d="M4 21c3-6 6.5-9 12-11" />
   </svg>
 )
-const ICONS = { 'infrastructure-tab': <RoadIcon />, 'services-tab': <BoltIcon />, 'features-tab': <LeafIcon /> }
+const ICONS = { 'infrastructure-tab': <RoadIcon />, 'services-tab': <DropIcon />, 'features-tab': <LeafIcon /> }
 
 export default function Specifications() {
   const [tab, setTab] = useState(specsTabs[0].key)

@@ -34,11 +34,19 @@ const CapIcon = () => (
 // Drive times per "Trivik Courtyard — The Master Narrative" (03 · Location).
 // The narrative groups schools and universities at 5–15 min, so the headline
 // figure is the near end of that band, not the 2 min previously shown.
+const HospitalIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 21V8l8-5 8 5v13" />
+    <path d="M9 21v-6h6v6M12 9v4M10 11h4" />
+  </svg>
+)
+
 const HIGHLIGHTS = [
   { icon: <PlaneIcon />, value: 30, unit: 'min', label: 'Kempegowda Intl. Airport' },
-  { icon: <WorkIcon />, value: 5, unit: 'min', label: 'ITIR · Foxconn operational' },
+  { icon: <WorkIcon />, value: 5, unit: 'min', label: 'ITIR · Foxconn' },
   { icon: <CapIcon />, value: 5, unit: 'min', label: 'Leading Schools & Universities' },
   { icon: <RoadIcon />, value: 10, unit: 'min', label: 'Doddaballapur Industrial Area' },
+  { icon: <HospitalIcon />, value: 15, unit: 'min', label: 'Manipal Hospital' },
 ]
 
 // count-up number that animates once its section scrolls into view
@@ -104,18 +112,13 @@ export default function Location() {
         <div className="loc2-stage">
           {/* ── header : centred title, then animated highlight stats ── */}
           <div className="loc2-head">
-            <span className="loc2-eyebrow">
-              The Location{' '}
-              <span className="loc2-eyebrow-sub">
-                Beerasandra,<br className="loc2-eyebrow-br" /> North Bengaluru.
-              </span>
-            </span>
             <h3>Your world, within minutes.</h3>
             <p>
               Trivik Courtyard sits directly on the Satellite Town Ring Road, the artery of North
               Bengaluru’s fastest-growing corridor — schools and universities, workplaces, healthcare
               and the airport, all arranged around the community, minutes in every direction.
             </p>
+            <span className="loc2-subplace">Beerasandra, North Bengaluru</span>
           </div>
 
           <div className="loc2-highlights">

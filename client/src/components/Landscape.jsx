@@ -28,7 +28,6 @@ export default function Landscape() {
         </div>
 
         <div className="verdant-head">
-          <span className="verdant-eyebrow">Trivik Courtyard</span>
           <h3>Landscape &amp; Internal Roads</h3>
         </div>
 
