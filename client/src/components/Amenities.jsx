@@ -30,7 +30,7 @@ const TABS = [
       { n: 'lux-basketball', alt: 'Basketball Half Court' },
       { n: 'lux-openarea', alt: 'Open Lawns' },
       { n: 'lux-tabletennis', alt: 'Pickleball Court' },
-      { n: 'amphitheatre', alt: 'Amphitheatre' },
+      { n: 'amphitheatre-new', alt: 'Amphitheatre' },
     ],
   },
 ]
