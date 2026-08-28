@@ -2397,6 +2397,13 @@ h3 {
 .club2-head--desktop .club2-eyebrow { color: #fff; }
 .club2-head--desktop h3 { color: #fff; }
 
+@media (min-width: 901px) {
+  .club2-head--desktop h3 {
+    font-size: 44px;
+    white-space: nowrap;
+  }
+}
+
 .club2-copy p {
   font-family: var(--font);
   font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.86); margin-bottom: 12px;
