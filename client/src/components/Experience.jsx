@@ -34,7 +34,7 @@ const ITEMS = [
     note: 'Indoor and outdoor spaces.',
   },
   {
-    img: 'images/dfl-park.webp',
+    img: 'images/gallery-park.webp',
     alt: 'Theme Parks',
     value: '4',
     label: 'Theme Parks',
