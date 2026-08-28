@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const navLinks = [
   { href: '#location', label: 'Location' },
@@ -14,6 +14,21 @@ const navLinks = [
 
 export default function Header({ onBrochure }) {
   const [open, setOpen] = useState(false)
+  const menuRef = useRef(null)
+  const toggleRef = useRef(null)
+
+  // close the dropdown on any click outside it (including the toggle button
+  // itself, which handles its own open/close via onClick)
+  useEffect(() => {
+    if (!open) return
+    const onDocClick = (e) => {
+      if (menuRef.current?.contains(e.target)) return
+      if (toggleRef.current?.contains(e.target)) return
+      setOpen(false)
+    }
+    document.addEventListener('click', onDocClick)
+    return () => document.removeEventListener('click', onDocClick)
+  }, [open])
 
   return (
     <>
@@ -34,6 +49,7 @@ export default function Header({ onBrochure }) {
             </button>
 
             <button
+              ref={toggleRef}
               className={`menu-toggle${open ? ' active' : ''}`}
               onClick={() => setOpen((o) => !o)}
               aria-label="Menu"
@@ -47,7 +63,7 @@ export default function Header({ onBrochure }) {
         </div>
       </header>
 
-      <nav className={`mobile-menu${open ? ' open' : ''}`}>
+      <nav ref={menuRef} className={`mobile-menu${open ? ' open' : ''}`}>
         <ul>
           {navLinks.map((l) => (
             <li key={l.href}>

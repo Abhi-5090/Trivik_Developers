@@ -40,7 +40,7 @@ export default function Gallery() {
   const centered = N + pos           // belt slot currently under the spotlight
 
   useEffect(() => {
-    Fancybox.bind("[data-fancybox='gallery']", { Thumbs: { type: 'classic' } })
+    Fancybox.bind("[data-fancybox='project-gallery']", { Thumbs: { type: 'classic' } })
     return () => Fancybox.destroy()
   }, [])
 
@@ -160,7 +160,7 @@ export default function Gallery() {
               <a
                 key={g.src}
                 href={g.src}
-                data-fancybox="gallery"
+                data-fancybox="project-gallery"
                 data-caption={g.alt}
                 className={`runway-slide${i === active ? ' on' : ''}`}
                 aria-hidden={i !== active}
