@@ -2353,12 +2353,10 @@ h3 {
 
 /* Clubhouse section */
 /* ===== Clubhouse — copy + a single full-width render ===== */
-/* Desktop: full-bleed, hero-style — the clubhouse render fills the whole
-   frame, copy sits over it on a dark scrim, same language as the site's
-   Hero. Mobile: the heading moves above the image (like every other
-   section) and only the copy + stats stay overlaid on the render. */
+/* Full-bleed, hero-style at every breakpoint — the clubhouse render
+   fills the whole frame, with the heading, copy and stats overlaid on
+   it on a dark scrim, same language as the site's Hero. */
 .club2 { position: relative; background: #FFFFFF; }
-.club2-head--mobile { display: none; }
 
 .club2-frame {
   position: relative;
@@ -2398,8 +2396,6 @@ h3 {
 }
 .club2-head--desktop .club2-eyebrow { color: #fff; }
 .club2-head--desktop h3 { color: #fff; }
-.club2-head--mobile .club2-eyebrow { color: #8b6e4e; }
-.club2-head--mobile h3 { color: #2b2a26; }
 
 .club2-copy p {
   font-family: var(--font);
@@ -2417,9 +2413,6 @@ h3 {
 .club2-stat em { font-style: normal; font-size: 12.5px; color: rgba(255, 255, 255, 0.68); margin-top: 5px; display: block; }
 
 @media (max-width: 900px) {
-  .club2-head--mobile { display: block; text-align: center; padding: 2.6em 0 1.4em; }
-  .club2-head--desktop { display: none; }
-
   /* the mobile crop opens onto sky at the top and quiet paving at the
      bottom — copy anchors near the tree up top, stats pin to the base,
      nothing covers the entrance signage or pool in the middle */
@@ -4645,7 +4638,7 @@ p { font-family: var(--font); }
 ============================================================ */
 @media (max-width: 620px) {
   .club2-eyebrow {
-    font-size: 26px;
+    font-size: 31px;
   }
   .loc2-head h3,
   .mplan-head h3,

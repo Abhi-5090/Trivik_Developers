@@ -9,15 +9,6 @@ const STATS = [
 export default function Clubhouse() {
   return (
     <section className="clubhouse-section club2" id="clubhouse">
-      {/* mobile-only heading — sits above the image like every other section;
-          hidden on desktop, where the heading is overlaid on the render instead */}
-      <div className="container">
-        <div className="club2-head club2-head--mobile">
-          <span className="club2-eyebrow">Club Aurum</span>
-          <h3>The soul of the community.</h3>
-        </div>
-      </div>
-
       <div className="club2-frame">
         <picture>
           {/* portrait crop on phones — open sky up top leaves room for the copy
@@ -29,7 +20,7 @@ export default function Clubhouse() {
 
         <div className="club2-frame-inner container">
           <div className="club2-content">
-            {/* desktop-only heading — overlaid on the image, hero-style */}
+            {/* heading overlaid on the image, hero-style, at every breakpoint */}
             <div className="club2-head club2-head--desktop">
               <span className="club2-eyebrow">Club Aurum</span>
               <h3>The soul of the community.</h3>
