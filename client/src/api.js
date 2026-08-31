@@ -10,11 +10,14 @@ export async function submitEnquiry(payload) {
   return data
 }
 
-// Same behaviour as the original: after a successful enquiry, pull the e-brochure.
+// After a successful enquiry, pull the e-brochure. Served as a static file
+// (no leading slash — same convention as image paths — so it resolves under
+// the GitHub Pages sub-path in production) rather than through the backend,
+// which isn't hosted.
 export function downloadBrochure() {
   const link = document.createElement('a')
-  link.href = '/api/brochure'
-  link.download = 'Trivik Courtyard.pdf'
+  link.href = 'trivik-courtyard-brochure.pdf'
+  link.download = 'Trivik Courtyard Brochure.pdf'
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)

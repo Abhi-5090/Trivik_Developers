@@ -19,6 +19,7 @@ export default function Popups({ popupOpen, setPopupOpen, thankyouOpen, setThank
       form.reset()
       setPopupOpen(false)
       setThankyouOpen(true)
+      downloadBrochure()
       return
     }
     setPopupOpen(false)
@@ -33,12 +34,14 @@ export default function Popups({ popupOpen, setPopupOpen, thankyouOpen, setThank
         source: 'enquire-popup',
       })
       form.reset()
+    } catch (err) {
+      // The enquiry backend isn't hosted on the live site — don't let that
+      // block the one thing the visitor actually asked for.
+      console.error('Enquiry submission failed:', err)
+    } finally {
       setLoading(false)
       setThankyouOpen(true)
       downloadBrochure()
-    } catch (err) {
-      setLoading(false)
-      alert('Submission failed: ' + (err.message || 'Validation error'))
     }
   }
 
